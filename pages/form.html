@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM</title>
+    <style>
+        body {
+            background-image: linear-gradient(to top right, red, yellow, blue);
+        }
+
+        main {
+            width: 80%;
+            height:70vh ;
+            border: 2px solid red;
+            background-color: pink;
+            font-size: large;
+            padding-top: 10px;
+            border-radius: 50px;
+            margin: 50px auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input[type="text"],[type="password"] ,[type="tel"],[type="email"]{
+            width: 350px;
+            height: 30px;
+            border: 0px;
+            border-bottom: 2px solid blue;
+            outline: 0px;
+            font-size: medium;
+            border-radius: 20px;
+            padding-left: 10px;
+            margin-right: 50px;
+            margin-bottom: 10px;
+            margin-top: 15px;
+        }
+        label{
+            margin-left: 20px;margin-right: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+        #hobbies
+        {
+            margin-left: 270px;
+        }
+        input[type="submit"],[type=reset]{
+            width: 70px;
+            height: 30px;
+            color: white;
+            border-radius: 20px;
+            background-color: blue;
+            margin: 50px 100px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <main>
+        <h1>Student Registration</h1>
+        <form action="" method="get">
+                <label for="">Enter first name:</label>
+                <input type="text" placeholder="Enter your first name" name="fname">
+                <label for="">Enter last name:</label>
+                <input type="text" placeholder="Enter your last name" name="lname"><br>
+                <label for="">Enter password:</label>
+                <input type="password" placeholder="Enter your password" name="password" required>
+                <label for="">Re-enter password:</label>
+                <input type="password" placeholder="Re-enter your password" name="password" required><br>
+                <label for="">Select gender:</label>
+                <input type="radio" name="gender" value="male" checked>male
+                <input type="radio" name="gender" value="female">female 
+                <label for="" id="hobbies">Select hobbies:</label>
+                <input type="checkbox" name="hobbies" value="reading">reading
+                <input type="checkbox" name="hobbies" value="singing">singing 
+                <input type="checkbox" name="hobbies" value="dancing">dancing
+                <input type="checkbox" name="hobbies" value="coding" checked>coding <br>
+                <label for="">Enter phone number:</label>
+                <input type="tel" placeholder="Enter your phone number" name="mobile">
+                <label for="">Enter email:</label>
+                <input type="email" placeholder="Enter your email id" name="email">
+                <label for="">Select your State:</label>
+                <select name="state" id="">
+                    <option value="none" disabled selected>Select your state</option>
+                    <option value="delhi">Delhi</option>
+                    <option value="goa">Goa</option>
+                    <option value="up">UP</option>
+                    <option value="haryana">Haryana</option>
+                </select>
+                <label for="">Enter date of birth:</label>
+                <input type="date"  name="dob">
+                <label for="">Search:</label>
+                <input type="search"  name="search" placeholder="Enter search content"><br>
+                <label for="">Select time:</label>
+                <input type="time"  name="time">
+                <label for="">upload aadhar:</label><input type="file"><br>
+                <input type="submit"><input type="reset">
+                
+                
+        </form>
+    </main>
+</body>
+
+</html>
