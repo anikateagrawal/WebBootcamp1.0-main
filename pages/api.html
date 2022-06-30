@@ -21,7 +21,7 @@
             padding: 5px 5px;
         }
         main{
-            width: 50%;
+            width: 60%;
             height: 80vh;
             margin: auto;
             background-color:darkorange;
@@ -32,9 +32,11 @@
             text-align: center;
             padding: 20px 10px;
         }
-        main h2{
+        main h2,label{
             padding: 0px 30px;
             color: white;
+            font-size: large;
+            font-weight: 800;
         }
         main h2 span{
             padding-left: 20px;
@@ -48,12 +50,21 @@
     </header>
     <main>
         <h1>Today 's Covid Cases</h1>
-        <h2 id="name">Country Name: </h2>
-        <h2 id="date">Date:</h2>
-        <h2 id="tcases">Total Cases:</h2>
-        <h2 id="tdeaths">Total Deaths:</h2>
-        <h2 id="ncases">New Cases:</h2>
-        <h2 id="ndeaths">New Deaths:</h2>
+        <label for="country">Select Country: </label>
+        <select onchange=getData() name="country" id="country" > 
+            <option value="India" selected>India</option>
+            <option value="Australia" >Australia</option>
+            <option value="United Kingdom" >UK</option>
+            <option value="Canada" >Canada</option>
+            <option value="United States of America">USA</option>
+            <option value="Japan" >Japan</option>
+        </select>
+        <h2 >Country Name: <span id="name"></span></h2>
+        <h2 >Date: <span id="date"></span></h2>
+        <h2 >Total Cases: <span id="tcases"></span></h2>
+        <h2 >Total Deaths: <span id="tdeaths"></span></h2>
+        <h2 >New Cases: <span id="ncases"></span></h2>
+        <h2 >New Deaths: <span id="ndeaths"></span></h2>
     </main>
     <script src="../js/api.js"></script>
 </body>
