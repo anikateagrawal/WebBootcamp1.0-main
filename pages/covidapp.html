@@ -1,49 +1,57 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API</title>
     <style>
-        *{
+        * {
             font-family: Arial, Helvetica, sans-serif;
         }
-        body{
-            background-color:rgb(84, 198, 243);
+
+        body {
+            background-color: rgb(84, 198, 243);
         }
-        header{
+
+        header {
             background-color: black;
             color: white;
             border-radius: 20px;
             text-align: center;
             padding: 5px 5px;
         }
-        main{
+
+        main {
             width: 60%;
             height: 80vh;
             margin: auto;
-            background-color:darkorange;
+            background-color: darkorange;
             border-radius: 10px;
         }
-        main h1{
+
+        main h1 {
             color: purple;
             text-align: center;
             padding: 20px 10px;
         }
-        main h2,label{
+
+        main h2,
+        label {
             padding: 0px 30px;
             color: white;
             font-size: large;
             font-weight: 800;
         }
-        main h2 span{
+
+        main h2 span {
             padding-left: 20px;
             color: black;
         }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Fetching Data Using Covid API</h1>
@@ -51,21 +59,16 @@
     <main>
         <h1>Today 's Covid Cases</h1>
         <label for="country">Select Country: </label>
-        <select onchange=getData() name="country" id="country" > 
-            <option value="India" selected>India</option>
-            <option value="Australia" >Australia</option>
-            <option value="United Kingdom" >UK</option>
-            <option value="Canada" >Canada</option>
-            <option value="United States of America">USA</option>
-            <option value="Japan" >Japan</option>
+        <select onchange=getData() name="country" id="country">
         </select>
-        <h2 >Country Name: <span id="name"></span></h2>
-        <h2 >Date: <span id="date"></span></h2>
-        <h2 >Total Cases: <span id="tcases"></span></h2>
-        <h2 >Total Deaths: <span id="tdeaths"></span></h2>
-        <h2 >New Cases: <span id="ncases"></span></h2>
-        <h2 >New Deaths: <span id="ndeaths"></span></h2>
+        <h2>Country Name: <span id="name"></span></h2>
+        <h2>Date: <span id="date"></span></h2>
+        <h2>Total Cases: <span id="tcases"></span></h2>
+        <h2>Total Deaths: <span id="tdeaths"></span></h2>
+        <h2>New Cases: <span id="ncases"></span></h2>
+        <h2>New Deaths: <span id="ndeaths"></span></h2>
     </main>
-    <script src="../js/api.js"></script>
+    <script src="../js/covidapp.js"></script>
 </body>
+
 </html>
