@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <script src="logic.js"></script>
+</head>
+<body>
+    <main id="create">
+        <h1 align="center">
+            Create Quiz
+        </h1>
+        <label for="question">Enter Question</label>
+        <input type="text" placeholder="Enter your question" name="question"  id="question" ><br>
+        <label for="option">Enter option1</label>
+        <input type="text" placeholder="Enter option1" name="option" id="option1">
+        <label for="option">Enter option2</label>
+        <input type="text" placeholder="Enter option2" name="option" id="option2">
+        <label for="option">Enter option3</label>
+        <input type="text" placeholder="Enter option3" name="option" id="option3">
+        <label for="option">Enter option4</label>
+        <input type="text" placeholder="Enter option4" name="option" id="option4"><br>
+        <label for="answer">choose correct option</label>
+        <input type="radio" value="1" name="answer" checked>option1
+        <input type="radio" value="2" name="answer">option2
+        <input type="radio" value="3" name="answer">option3
+        <input type="radio" value="4" name="answer">option4
+        <br>
+        <button onclick=addquestion()>Add</button>
+        <button onclick=done()>Done</button>
+    </main>
+    <section id="questions">
+        <h1 align="center">Quiz</h1>
+    </section>
+</body>
+</html>
