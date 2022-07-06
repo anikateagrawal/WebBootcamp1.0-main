@@ -2,8 +2,9 @@ var count = 0;
 var ans = [];
 function addquestion() {
     var sec = document.getElementById("questions");
-    var div=document.createElement("div");
-    div.innerHTML=`<p>Q.${count + 1} ${document.getElementById("question").value}</p>
+    let d=document.createElement("div");
+    d.className="ques";
+    d.innerHTML=`<p>Q.${count + 1} ${document.getElementById("question").value}</p>
     <div class="obox">
     <div><label>Ans. ${count + 1} <input type="radio" name="answer${count + 1}" value="1">
     <span>${document.getElementById("option1").value}</span>
@@ -16,7 +17,7 @@ function addquestion() {
     <div><input type="radio" name="answer${count + 1}" value="4">
     <span>${document.getElementById("option4").value}</span></div> 
     <input type="radio" name="answer${count + 1}" value="0" checked style="display:none"></div>`
-    sec.appendChild(div);
+    sec.appendChild(d);
     document.getElementById("question").value = null;
     document.getElementById("option1").value = null;
     document.getElementById("option2").value = null;
