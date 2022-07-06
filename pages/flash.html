@@ -41,7 +41,7 @@
             position: absolute;
             top: 300px;
             animation: flash 1s linear 10;
-            animation-play-state:paused;
+            animation-play-state: paused;
         }
 
         h2 {
@@ -57,7 +57,8 @@
                 transform: translateX(1500px);
             }
         }
-        #result{
+
+        #result {
             position: absolute;
             top: 0;
             height: 100px;
@@ -77,39 +78,47 @@
         <img src="../images/city-road-modern-buildings-background_1417-14329.jpg" alt="background" width="100%"
             height="600px">
         <h1>Can You Touch Flash?</h1>
-        <h2 >Score: <span id="score"></span>
-        <button onclick=start()>Start</button>
+        <h2>Score: <span id="score"></span>
+            <button onclick=start()>Start</button>
         </h2>
         <div id="flash" onclick=scores()>
             <img src="../images/13-2-flash-download-png.png" alt="flash" height="200px" width="100px">
         </div>
-    </div >
+    </div>
     <div id="result"></div>
     <script>
 
         var score = 0;
-        document.getElementById("score").textContent=`${score}`;
+        var flash = document.getElementById("flash");
+        var building = document.getElementsByClassName("container")[0];
+        document.getElementById("score").textContent = `${score}`;
         function scores() {
             score++;
-            document.getElementById("score").textContent=`${score}`;
+            document.getElementById("score").textContent = `${score}`;
         }
-        function start()
-        {
-            r.textContent="";
-            document.getElementById("flash").style.animationPlayState="running";
-            document.getElementsByClassName("container")[0].style.animationPlayState="running";
-            setTimeout(end,10000);
+        function start() {
+            r.textContent = "";
+            flash.style.animationPlayState = "running";
+            building.style.animationPlayState = "running";
+            setTimeout(end, 10000);
         }
-        function end()
-        {        
-            if(score>=10){
-                r.textContent=`${score}/10 Congratulations you won`;
+        function end() {
+            flash.style.animation="none";
+            flash.offsetWidth;
+            flash.style.animation="flash 1s linear 10";
+            flash.style.animationPlayState="paused";
+            building.style.animation="none";
+            building.offsetWidth;
+            building.style.animation="building 1s linear 10";
+            building.style.animationPlayState="paused";
+            if (score >= 10) {
+                r.textContent = `${score}/10 Congratulations you won`;
             }
-            else{
-                r.textContent=`${score}/10 OOPS! Flash was faster.` ;
+            else {
+                r.textContent = `${score}/10 OOPS! Flash was faster.`;
             }
         }
-        var r=document.getElementById("result");
+        var r = document.getElementById("result");
     </script>
 </body>
 
