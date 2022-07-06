@@ -40,7 +40,7 @@
             width: 200px;
             position: absolute;
             top: 300px;
-            animation: flash 5s linear 10;
+            animation: flash 1s linear 10;
             animation-play-state:paused;
         }
 
@@ -57,6 +57,18 @@
                 transform: translateX(1500px);
             }
         }
+        #result{
+            position: absolute;
+            top: 0;
+            height: 100px;
+            width: 100%;
+            display: flex;
+            font-size: xx-large;
+            color: white;
+            background-color: black;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 
@@ -71,8 +83,8 @@
         <div id="flash" onclick=scores()>
             <img src="../images/13-2-flash-download-png.png" alt="flash" height="200px" width="100px">
         </div>
-    </div>
-    <span id="result" ></span>
+    </div >
+    <div id="result"></div>
     <script>
 
         var score = 0;
@@ -83,9 +95,10 @@
         }
         function start()
         {
+            r.textContent="";
             document.getElementById("flash").style.animationPlayState="running";
             document.getElementsByClassName("container")[0].style.animationPlayState="running";
-            setTimeout(end,50000);
+            setTimeout(end,10000);
         }
         function end()
         {        
