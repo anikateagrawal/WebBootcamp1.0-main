@@ -6,33 +6,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
     <script src="logic.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-image: linear-gradient(to top right,pink, yellow, green);
+            background-repeat: no-repeat;
+        }
+        #create{
+            margin: auto ;
+            margin-top: 20px;
+            width: 90%;
+            background-color: aquamarine;
+            border-radius: 20px;
+            font-size: xx-large;
+            font-family: Arial, Helvetica, sans-serif;
+            padding:10px 10px;
+        }
+        #create h1{
+            color: brown;
+        }
+        #question{
+            width: 80%;
+            height: 40px;
+            font-size: x-large;
+            outline: none;
+            border: none;
+            border-bottom: 2px solid red;
+            border-radius: 20px;
+            padding-left:10px ;
+            margin: 10px;
+        }
+        .options
+        {
+            margin: 10px;
+            width: 30%;
+            height: 40px;
+            font-size: x-large;
+            outline: none;
+            border: none;
+            border-bottom: 2px solid red;
+            border-radius: 20px;
+            padding-left:10px ;
+        }
+        #create input[type="radio"]
+        {
+            height: 20px;
+            width: 2%;
+        }
+        button{
+            color: white;
+            background-color: blue;
+            border-radius: 20px;
+            width: 80px;
+            height: 40px;
+            font-size: x-large;
+            margin-top: 10px;
+        }
+        .button{
+            display: flex;
+            justify-content: space-evenly;
+            
+        }
+        #questions{
+            margin: auto ;
+            margin-top: 20px;
+            width: 90%;
+            background-color:blanchedalmond;
+            border-radius: 20px;
+            font-size: xx-large;
+            font-family: Arial, Helvetica, sans-serif;
+            padding:10px 10px;
+        }
+        .obox{
+            display: flex;
+            justify-content: space-between;
+            align-items:center;
+            margin-right: 20px;
+        }
+        .obox input[type="radio"]
+        {
+             height: 20px;
+             width: 20px;
+        }
+    </style>
 </head>
 <body>
     <main id="create">
         <h1 align="center">
             Create Quiz
         </h1>
-        <label for="question">Enter Question</label>
+        <label for="question">Enter Question:</label>
         <input type="text" placeholder="Enter your question" name="question"  id="question" ><br>
-        <label for="option">Enter option1</label>
-        <input type="text" placeholder="Enter option1" name="option" id="option1">
-        <label for="option">Enter option2</label>
-        <input type="text" placeholder="Enter option2" name="option" id="option2">
-        <label for="option">Enter option3</label>
-        <input type="text" placeholder="Enter option3" name="option" id="option3">
-        <label for="option">Enter option4</label>
-        <input type="text" placeholder="Enter option4" name="option" id="option4"><br>
-        <label for="answer">choose correct option</label>
+        <label for="option">Enter option1:</label>
+        <input type="text" placeholder="Enter option1" name="option" class="options" id="option1">
+        <label for="option">Enter option2:</label>
+        <input type="text" placeholder="Enter option2" name="option" class="options" id="option2"><br>
+        <label for="option">Enter option3:</label>
+        <input type="text" placeholder="Enter option3" name="option" class="options" id="option3">
+        <label for="option">Enter option4:</label>
+        <input type="text" placeholder="Enter option4" name="option" class="options" id="option4"><br>
+        <label for="answer">Choose correct option:</label>
         <input type="radio" value="1" name="answer" checked>option1
         <input type="radio" value="2" name="answer">option2
         <input type="radio" value="3" name="answer">option3
         <input type="radio" value="4" name="answer">option4
-        <br>
+        <div class="button">
         <button onclick=addquestion()>Add</button>
         <button onclick=done()>Done</button>
+    </div>
     </main>
     <section id="questions">
-        <h1 align="center">Quiz</h1>
+        
+        <div>
+            <div></div>
+        </div>
     </section>
 </body>
 </html>

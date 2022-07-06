@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DateTime</title>
+    <style>
+        body{
+            background-image: linear-gradient(to bottom,pink,yellow,orange);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: xx-large;
+        }
+        input[type="text"]{
+            background: none;
+            font-size: xx-large;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="time"></div>
+    <div id="clock"></div>
+    <div><input type="text" id="name" placeholder="Enter your name" oninput="set()"></div>
+    <div id="date"></div>  
+    <script>
+        document.getElementById("time").innerText=new Date().toLocaleTimeString();
+        var h=new Date().getHours();
+        if(h>=4&&h<12){
+            document.getElementById("clock").innerText="Good Morning";
+        }
+        else if(h>=12&&h<16){
+            document.getElementById("clock").innerText="Good Afternoon";
+        }
+        else if(h>=16&&h<20){
+            document.getElementById("clock").innerText="Good Evening";
+        }
+        else if(h>=20||h<4){
+            document.getElementById("clock").innerText="Good night";
+        }
+        document.getElementById("date").innerText=new Date().toDateString();
+        var n=document.getElementById("name");
+        if(localStorage.getItem("name")==null)
+        {
+           n.value="Enter Name"; 
+        }
+        else n.value=localStorage.getItem("name");
+        function set()
+        {
+            localStorage.setItem("name",n.value);
+        }
+    </script>  
+</body>
+</html>
