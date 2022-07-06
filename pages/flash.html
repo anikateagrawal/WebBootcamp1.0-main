@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        .container {
+            background-color: aqua;
+            width: 100%;
+            height: 100vh;
+            margin: none;
+            animation: building 1s linear 10;
+            animation-play-state: paused;
+        }
+
+        @keyframes building {
+            0% {
+                transform: scale(1);
+
+            }
+
+            100% {
+                transform: scale(1.05);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            color: red;
+        }
+
+        #flash {
+            width: 200px;
+            position: absolute;
+            top: 300px;
+            animation: flash 5s linear 10;
+            animation-play-state:paused;
+        }
+
+        h2 {
+            margin-left: 100px;
+        }
+
+        @keyframes flash {
+            0% {
+                transform: translateX(-50px);
+            }
+
+            100% {
+                transform: translateX(1500px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="../images/city-road-modern-buildings-background_1417-14329.jpg" alt="background" width="100%"
+            height="600px">
+        <h1>Can You Touch Flash?</h1>
+        <h2 >Score: <span id="score"></span>
+        <button onclick=start()>Start</button>
+        </h2>
+        <div id="flash" onclick=scores()>
+            <img src="../images/13-2-flash-download-png.png" alt="flash" height="200px" width="100px">
+        </div>
+    </div>
+    <span id="result" ></span>
+    <script>
+
+        var score = 0;
+        document.getElementById("score").textContent=`${score}`;
+        function scores() {
+            score++;
+            document.getElementById("score").textContent=`${score}`;
+        }
+        function start()
+        {
+            document.getElementById("flash").style.animationPlayState="running";
+            document.getElementsByClassName("container")[0].style.animationPlayState="running";
+            setTimeout(end,50000);
+        }
+        function end()
+        {        
+            if(score>=10){
+                r.textContent=`${score}/10 Congratulations you won`;
+            }
+            else{
+                r.textContent=`${score}/10 OOPS! Flash was faster.` ;
+            }
+        }
+        var r=document.getElementById("result");
+    </script>
+</body>
+
+</html>
