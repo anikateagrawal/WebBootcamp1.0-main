@@ -71,49 +71,15 @@
         </select><br>
         Address:<input type="text" id="add" placeholder="Enter your address"><br>
         <div class="btns">
-            <button class="btn" onclick=input()>Input</button>    
-            <button class="btn" onclick=read()>Read</button>    
-            <button class="btn" onclick=update()>Update</button>    
-            <button class="btn" onclick=del()>Delete</button>    
+            <button class="btn" >Input</button>    
+            <button class="btn" >Read</button>    
+            <button class="btn" >Update</button>    
+            <button class="btn" >Delete</button>    
         </div>
     </div>
-    <script>
-        var Name=document.getElementById("name");
-        var roll=document.getElementById("roll");
-        var gen=document.getElementById("gen");
-        var add=document.getElementById("add");
-        var n,r,g,a;
-        function getData()
-        {
-            n=Name.value;
-            r=roll.value;
-            a=add.value;
-            g=gen.value;
-        }
-        function clear()
-        {
-            roll.value="";
-            Name.value="";
-            gen.value="";
-            add.value="";
-        }
-        function input(event){
-            getData();
-            clear();
-        }
-        function read(){
-            getData();
-            clear();
-        }
-        function update(){
-            getData();
-            clear();
-        }
-        function del(){
-            getData();
-            clear();
-        }
-    </script>
+    
     <script type="module" src="../js/firebase.js"></script>
+    <script type="module" src="../js/firebasejs.js">
+    </script>
 </body>
 </html>
