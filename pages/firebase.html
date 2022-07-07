@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: cornflowerblue;
+        }
+        .container{
+            width:600px;
+            height: 400px;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: white;
+            border-radius: 20px;
+            padding: 20px;
+            font-size: 16px;
+        }
+        h1{
+            padding: 20px;
+        }
+        input[type="text"],select{
+            width: 450px;
+            height: 35px;
+            margin: 10px;
+            border-radius: 10px;
+            padding: 5px;
+        }
+        .btns{
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .btn{
+            width: 100px;
+            height: 40px;
+            border-radius: 10px;
+            background-color: cornflowerblue;
+            margin: 10px;
+            border: none;
+            color: white;
+        }
+        .btn:active{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 align="center">CRUD Operations</h1>
+        <hr>
+        Name: &nbsp;&nbsp;<input type="text" id="name" placeholder="Enter your name"><br>
+        Roll No: <input type="text" id="roll" placeholder="Enter your Roll No."><br>
+        Gender: <select name="gender" id="gen">
+            <option value="" disabled selected>Select your Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Others">Others</option>
+        </select><br>
+        Address:<input type="text" id="add" placeholder="Enter your address"><br>
+        <div class="btns">
+            <button class="btn" onclick=input()>Input</button>    
+            <button class="btn" onclick=read()>Read</button>    
+            <button class="btn" onclick=update()>Update</button>    
+            <button class="btn" onclick=del()>Delete</button>    
+        </div>
+    </div>
+    <script>
+        var Name=document.getElementById("name");
+        var roll=document.getElementById("roll");
+        var gen=document.getElementById("gen");
+        var add=document.getElementById("add");
+        var n,r,g,a;
+        function getData()
+        {
+            n=Name.value;
+            r=roll.value;
+            a=add.value;
+            g=gen.value;
+        }
+        function clear()
+        {
+            roll.value="";
+            Name.value="";
+            gen.value="";
+            add.value="";
+        }
+        function input(event){
+            getData();
+            clear();
+        }
+        function read(){
+            getData();
+            clear();
+        }
+        function update(){
+            getData();
+            clear();
+        }
+        function del(){
+            getData();
+            clear();
+        }
+    </script>
+    <script type="module" src="../js/firebase.js"></script>
+</body>
+</html>
