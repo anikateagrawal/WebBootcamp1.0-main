@@ -97,6 +97,8 @@
             document.getElementById("score").textContent = `${score}`;
         }
         function start() {
+            score=0;
+            document.getElementById("score").textContent = `${score}`;
             r.textContent = "";
             flash.style.animationPlayState = "running";
             building.style.animationPlayState = "running";
