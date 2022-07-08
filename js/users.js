@@ -2,7 +2,7 @@ import{getDatabase,get,child,ref} from "https://www.gstatic.com/firebasejs/9.8.4
 const db=getDatabase();
 function getusers()
 {
-    var users=[]
+    var users=[];
     get(ref(db,"data/")).then((snapshot)=>{snapshot.forEach(user => {
         users.push(user.val());
     });

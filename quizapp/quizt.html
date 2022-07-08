@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Test</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .display1 {
+            background-color: antiquewhite;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: large;
+        }
+
+        .display2 {
+            height: 100vh;
+            display: none;
+        }
+        #display3{
+            height: 100vh;
+            background-color: coral;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+        #result{
+            background-color: white;
+            width: 80%;
+            border-radius: 20px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: xx-large;
+        }
+        .box {
+            background-color: white;
+            width: 400px;
+            height: 200px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            height: 30px;
+            border-radius: 10px;
+        }
+
+        #btn1 ,#btn2{
+            width: 100px;
+            height: 40px;
+            font-size: large;
+            border-radius: 10px;
+        }
+
+        #questions {
+            margin: auto;
+            margin-top: 20px;
+            width: 90%;
+            background-color: blanchedalmond;
+            border-radius: 20px;
+            font-size: xx-large;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 10px 10px;
+        }
+
+        .obox {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .obox input[type="radio"] {
+            height: 20px;
+            width: 20px;
+        }
+
+        .ques {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="display1">
+        <div class="box">
+            <div>
+                Enter Quiz Name: <input type="text" id="name"></div>
+            <button id="btn1">Submit</button>
+        </div>
+    </div>
+    <div class="display2" id="display2">
+        <section id="questions">
+            <h1 align="center">Quiz</h1>
+        </section>
+    </div>
+    <div id="display3">
+        <div id="result"></div>
+    </div>
+    <script src="../js/firebase.js" type="module"></script>
+    <script type="module">
+        import { getDatabase, ref, get, set, update, remove, child } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-database.js";
+
+        const db = getDatabase();
+
+        document.getElementById("btn1").onclick = change;
+        var Name;
+
+
+        if (!sessionStorage.getItem("name") == "") {
+            document.getElementsByClassName("display1")[0].style.display = "none";
+            document.getElementsByClassName("display2")[0].style.display = "block";
+            Name = sessionStorage.getItem("name");
+        }
+
+        var ans = [];
+        var questions = [];
+
+
+        function read() {
+            get(ref(db, "Quiz/" + Name + "/")).then((snapshot) => {
+                snapshot.forEach(question => { questions.push(question.val()) }); fetch();
+            });
+        }
+
+        function change() {
+            document.getElementsByClassName("display1")[0].style.display = "none";
+            document.getElementsByClassName("display2")[0].style.display = "block";
+            Name = document.getElementById("name").value;
+            sessionStorage.setItem("name", Name);
+        }
+
+
+        window.onload = read
+
+
+        function fetch() {
+            var sec = document.getElementById("questions");
+            questions.forEach(question => {
+                let n = question.No, q = question.Question, o1 = question.Option1, o2 = question.Option2, o3 = question.Option3, o4 = question.Option4, a = question.Answer;
+                let d = document.createElement("div");
+                d.className = "ques";
+                d.innerHTML = `<p>Q${n}. ${q}</p>
+                <div class="obox">
+                <div><label>Ans${n}. <input type="radio" name="answer${n}" value="1">
+                <span>${o1}</span>
+                </div>
+                <div><input type="radio" name="answer${n}" value="2">
+                <span>${o2}</span>
+                </div>
+                <div><input type="radio" name="answer${n}" value="3">
+                <span>${o3}</span></div>
+                <div><input type="radio" name="answer${n}" value="4">
+                <span>${o4}</span></div> 
+                <input type="radio" name="answer${n}" value="0" checked style="display:none"></div>`
+                sec.appendChild(d);
+                ans[0]=n;
+                ans[n]=a;
+            });
+            var b = document.getElementById("questions");
+            var button = document.createElement("button");
+            button.id="btn2";
+            button.textContent = "submit";
+            button.onclick = check;
+            b.appendChild(button);
+        }
+
+
+        function check() {
+            document.getElementById("display2").style.display = "none";
+            let n=ans[0];
+            let score = 0;
+            for (let i = 1; i <= n; i++) {
+                let nn = "answer" + i;
+                let a = document.querySelector(`input[name=${nn}]:checked`).value;
+                if (a == ans[i]) score++;
+            }
+            document.getElementById("display3").style.display="flex";
+            document.getElementById("result").textContent=`Your score is ${score} out of ${n}`;
+            // var result = document.createElement("section");
+            // document.querySelector("body").appendChild(result);
+            // var p = document.createElement("h1");
+            // p.textContent = `Your score is ${score} out of ${n}`;
+            // result.appendChild(p);
+        }
+    </script>
+</body>
+
+</html>

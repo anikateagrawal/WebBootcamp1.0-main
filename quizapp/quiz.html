@@ -71,7 +71,7 @@
             color: brown;
         }
 
-        #question{
+        #question {
             width: 80%;
             height: 40px;
             font-size: x-large;
@@ -100,7 +100,7 @@
 
         .btn {
             color: white;
-            background-color:cornflowerblue;
+            background-color: cornflowerblue;
             border-radius: 20px;
             width: 80px;
             height: 40px;
@@ -114,32 +114,7 @@
 
         }
 
-        #questions {
-            margin: auto;
-            margin-top: 20px;
-            width: 90%;
-            background-color: blanchedalmond;
-            border-radius: 20px;
-            font-size: xx-large;
-            font-family: Arial, Helvetica, sans-serif;
-            padding: 10px 10px;
-        }
-
-        .obox {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-right: 20px;
-        }
-
-        .obox input[type="radio"] {
-            height: 20px;
-            width: 20px;
-        }
-
-        .ques {
-            margin: 20px;
-        }
+        
     </style>
 </head>
 
@@ -182,46 +157,59 @@
         import { getDatabase, ref, get, set, update, remove, child } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-database.js";
         const db = getDatabase();
         document.getElementById("btn1").onclick = change;
-        var q,o1,o2,o3,o4,a,Name,no=0;
-        document.getElementById("add").onclick=addquestion;
-        function getdata()
-        {
-         q = document.getElementById("question").value;
-         o1 = document.getElementById("option1").value;
-         o2 = document.getElementById("option2").value;
-         o3 = document.getElementById("option3").value;
-         o4 = document.getElementById("option4").value;
-         a=document.querySelector('input[name="answer"]:checked').value;
-         console.log(q,o1,o2,o3,o4,a);
+        var q, o1, o2, o3, o4, a, Name, no = 0;
+        document.getElementById("add").onclick = addquestion;
+
+        if (!sessionStorage.getItem("name") == "") {
+            document.getElementsByClassName("display1")[0].style.display = "none";
+            document.getElementsByClassName("display2")[0].style.display = "block";
+            Name = sessionStorage.getItem("name");
         }
-        function clear(){
-            q="";
-            o1="";
-            o2="";
-            o3="";
-            o4="";
+        var questions=[];     
+        function readNo() { 
+            get(ref(db, "Quiz/" + Name + "/")).then((snapshot) => {
+                snapshot.forEach(question =>
+                    {questions.push(question.val())});no=questions[questions.length-1].No;
+            });
+        }
+        function getdata() {
+            q = document.getElementById("question").value;
+            o1 = document.getElementById("option1").value;
+            o2 = document.getElementById("option2").value;
+            o3 = document.getElementById("option3").value;
+            o4 = document.getElementById("option4").value;
+            a = document.querySelector('input[name="answer"]:checked').value;
+        }
+        function clear() {
+            q = "";
+            o1 = "";
+            o2 = "";
+            o3 = "";
+            o4 = "";
         }
         function change() {
             document.getElementsByClassName("display1")[0].style.display = "none";
             document.getElementsByClassName("display2")[0].style.display = "block";
-            Name=document.getElementById("name").value;
+            Name = document.getElementById("name").value;
+            sessionStorage.setItem("name", Name);
         }
-        function addquestion(){
+        function addquestion() {
+            readNo();
             getdata();
             no++;
-            set(ref(db,"Quiz/"+Name+"/"+no),{
-                Question:q,
-                Name:o1,
-                Gender:o2,
-                Gender:o3,
-                Gender:o4,
-                Answer:a
-            }).then(()=>{
+            set(ref(db, "Quiz/" + Name + "/" + no), {
+                No: no,
+                Question: q,
+                Option1: o1,
+                Option2: o2,
+                Option3: o3,
+                Option4: o4,
+                Answer: a
+            }).then(() => {
                 alert("Data stored Successfully")
-            }).catch((error)=>alert("unsuccessful",error));
+            }).catch((error) => alert("unsuccessful", error));
             clear();
         }
     </script>
 </body>
-
 </html>
