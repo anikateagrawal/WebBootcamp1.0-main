@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            height: 100vh;
+            background-image: linear-gradient(to right,lightblue,rgb(32, 192, 246),rgb(22, 22, 240),rgb(89, 89, 248),rgb(79, 79, 207));
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            font-weight:2000;
+            text-align: center;
+            color: white;
+            font-size: 40px;
+            padding: 50px;
+        }
+
+        .task {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #head{
+            margin: 20px;
+        }
+        .btn {
+            height: 40px;
+            width: 40px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fa-square-plus {
+            font-size: xx-large;
+            color: red;
+        }
+
+        .todo {
+            padding-left: 10px;
+            height: 40px;
+            width: 300px;
+            outline: none;
+            border: none;
+            font-size: 24px;
+        }
+        .tick{
+            background-color: rgb(190, 51, 74);
+        }
+        .del{
+            background-color: green;
+        }
+        li{
+            margin: 5px;
+        }
+        .check{
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+        .fa-check{
+            pointer-events: none;
+        }
+        .fa-trash-can{
+            pointer-events: none;
+        }
+        .list{
+            width:200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>To Do List</h1>
+        <div class="task" id="head">
+            <input type="text"  class="todo" id="todo" placeholder="Enter Task to do">
+            <div class="btn" id="btn1"><i id="btn" class="fa-solid fa-square-plus"></i></div>
+        </div>
+        <div class="box">
+            <ul id="list">
+
+            </ul>
+        </div>
+    </div>
+    <script>
+        var btn=document.getElementById("btn1");
+        btn.onclick=add;
+        var arr=[];
+        window.onload=fetch;
+        function fetch()
+        {
+            arr=[];
+            if(!localStorage.getItem("list")==""){
+                arr=localStorage.getItem("list");
+                arr=arr.split(",")
+            }
+            display(arr);
+        }
+        function display()
+        {
+            arr.forEach(element => {
+            let v=element;
+            let item=document.createElement("li");
+            document.getElementById("list").appendChild(item);
+            let d=document.createElement("div");
+            item.appendChild(d);
+            d.className="task";
+            let input=document.createElement("input");
+            input.type="text";
+            input.value=v;
+            input.className="todo list";
+            let i1=document.createElement("div");
+            let i2=document.createElement("div");
+            i1.className="btn tick";
+            i2.className="btn del";
+            i1.innerHTML=`<i class="fa-solid fa-check"></i>`;
+            i2.innerHTML=`<i class="fa-solid fa-trash-can"></i>`;
+            d.appendChild(input);
+            d.appendChild(i1);
+            d.appendChild(i2);
+            i1.onclick=check;
+            i2.onclick=del;
+            });
+        }
+        function add()
+        {
+            let v=document.getElementById("todo").value;
+            v=v.trim();
+            if(!v==""){
+            let item=document.createElement("li");
+            document.getElementById("list").appendChild(item);
+            let d=document.createElement("div");
+            item.appendChild(d);
+            d.className="task";
+            let input=document.createElement("input");
+            input.type="text";
+            input.value=v;
+            input.className="todo list";
+            let i1=document.createElement("div");
+            let i2=document.createElement("div");
+            i1.className="btn tick";
+            i2.className="btn del";
+            i1.innerHTML=`<i class="fa-solid fa-check"></i>`;
+            i2.innerHTML=`<i class="fa-solid fa-trash-can"></i>`;
+            d.appendChild(input);
+            d.appendChild(i1);
+            d.appendChild(i2);
+            i1.onclick=check;
+            i2.onclick=del;
+            arr.push(v);
+            localStorage.setItem("list",arr);
+            document.getElementById("todo").value="";
+            }else alert("To Do cannot be blank");
+        }
+        function check(e){
+            var i=e.target;
+            var p=i.parentElement;
+            p.classList.toggle("check");
+        }
+        function del(e){
+            var i=e.target;
+            var p=i.parentElement;
+            var v=p.children[0];
+            p.parentElement.remove(v);
+            arr.pop(v);
+            localStorage.setItem("list",arr);
+        }
+    </script>
+</body>
+
+</html>
