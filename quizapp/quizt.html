@@ -127,6 +127,7 @@
             document.getElementsByClassName("display1")[0].style.display = "none";
             document.getElementsByClassName("display2")[0].style.display = "block";
             Name = sessionStorage.getItem("name");
+            read();
         }
 
         var ans = [];
@@ -144,11 +145,8 @@
             document.getElementsByClassName("display2")[0].style.display = "block";
             Name = document.getElementById("name").value;
             sessionStorage.setItem("name", Name);
+            read();
         }
-
-
-        window.onload = read
-
 
         function fetch() {
             var sec = document.getElementById("questions");
@@ -193,11 +191,7 @@
             }
             document.getElementById("display3").style.display="flex";
             document.getElementById("result").textContent=`Your score is ${score} out of ${n}`;
-            // var result = document.createElement("section");
-            // document.querySelector("body").appendChild(result);
-            // var p = document.createElement("h1");
-            // p.textContent = `Your score is ${score} out of ${n}`;
-            // result.appendChild(p);
+        
         }
     </script>
 </body>
