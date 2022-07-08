@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Time Communication</title>
+</head>
+<body>
+    <h2>Real Time Communication using Web Sockets</h2>
+
+    <pre>
+            Message Send to server:   
+
+            <input type="text">     <button>Send</button>
+
+            <button id="disconnect">Disconnect Server</button>
+
+            <button id="reconnect">Reconnect</button>
+        </pre>
+
+ <script>
+    var btndis = document.getElementById("disconnect");
+var reconnectBtn = document.getElementById("reconnect");
+var input = document.querySelector("input");
+var sendBtn = document.querySelector("button");
+
+if (window.WebSocket) {
+  console.log("Browser support Web Sockets");
+
+  const ws = new WebSocket("ws://localhost:8001");
+
+  ws.addEventListener("open", () => {
+    console.log("We are connected with server");
+  });
+
+  sendBtn.onclick = function () {
+    let msg = input.value;
+    ws.send(msg);
+    input.value = "";
+  };
+
+  ws.addEventListener("message", (e) => {
+    console.log("Server Reply: ", e.data);
+  });
+  btndis.onclick = () => {
+    ws.close();
+    console.log("We are discoonected from server");
+  };
+
+  reconnectBtn.onclick = () => {
+    location.reload();
+  };
+} else {
+  console.log("Browser not supporting Web Sockets");
+}
+ </script>
+</body>
+</html>
