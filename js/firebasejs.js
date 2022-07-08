@@ -35,7 +35,7 @@ import{getDatabase,ref,get,set,update,remove,child} from "https://www.gstatic.co
                 Address:a
             }).then(()=>{
                 alert("Data stored Successfully")
-            }).catch();}
+            }).catch((error)=>alert("unsuccessful",error));}
             else alert("Roll no cannot be empty");
             clear();
         }

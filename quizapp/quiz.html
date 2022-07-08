@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .display1 {
+            background-color: antiquewhite;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: large;
+        }
+
+        .display2 {
+            height: 100vh;
+            display: none;
+        }
+
+        .box {
+            background-color: white;
+            width: 400px;
+            height: 200px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            height: 30px;
+            border-radius: 10px;
+        }
+
+        #btn1 {
+            width: 100px;
+            height: 40px;
+            font-size: large;
+            border-radius: 10px;
+        }
+
+        #create {
+            margin: auto;
+            /* margin-top: 20px; */
+            width: 90%;
+            background-color: white;
+            border-radius: 20px;
+            font-size: xx-large;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 10px 10px;
+        }
+
+        .display2 {
+            background-color: cornflowerblue;
+            background-repeat: no-repeat;
+        }
+
+        #create h1 {
+            color: brown;
+        }
+
+        #question{
+            width: 80%;
+            height: 40px;
+            font-size: x-large;
+            outline: none;
+            border: 2px solid red;
+            border-radius: 20px;
+            padding-left: 10px;
+            margin: 10px;
+        }
+
+        .options {
+            margin: 10px;
+            width: 20%;
+            height: 40px;
+            font-size: x-large;
+            outline: none;
+            border: 2px solid red;
+            border-radius: 20px;
+            padding-left: 10px;
+        }
+
+        #create input[type="radio"] {
+            height: 20px;
+            width: 2%;
+        }
+
+        .btn {
+            color: white;
+            background-color:cornflowerblue;
+            border-radius: 20px;
+            width: 80px;
+            height: 40px;
+            font-size: x-large;
+            margin-top: 10px;
+        }
+
+        .button {
+            display: flex;
+            justify-content: space-evenly;
+
+        }
+
+        #questions {
+            margin: auto;
+            margin-top: 20px;
+            width: 90%;
+            background-color: blanchedalmond;
+            border-radius: 20px;
+            font-size: xx-large;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 10px 10px;
+        }
+
+        .obox {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .obox input[type="radio"] {
+            height: 20px;
+            width: 20px;
+        }
+
+        .ques {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="display1">
+        <div class="box">
+            <div>
+                Enter Quiz Name: <input type="text" id="name"></div>
+            <button id="btn1">Submit</button>
+        </div>
+    </div>
+    <div class="display2">
+        <main id="create">
+            <h1 align="center">
+                Create Quiz
+            </h1>
+            <label for="question">Enter Question:</label>
+            <input type="text" placeholder="Enter your question" name="question" id="question"><br>
+            <label for="option">Enter option1:</label>
+            <input type="text" placeholder="Enter option1" name="option" class="options" id="option1">
+            <label for="option">Enter option2:</label>
+            <input type="text" placeholder="Enter option2" name="option" class="options" id="option2"><br>
+            <label for="option">Enter option3:</label>
+            <input type="text" placeholder="Enter option3" name="option" class="options" id="option3">
+            <label for="option">Enter option4:</label>
+            <input type="text" placeholder="Enter option4" name="option" class="options" id="option4"><br>
+            <label for="answer">Choose correct option:</label>
+            <input type="radio" value="1" name="answer" checked>option1
+            <input type="radio" value="2" name="answer">option2
+            <input type="radio" value="3" name="answer">option3
+            <input type="radio" value="4" name="answer">option4
+            <div class="button">
+                <button class="btn" id="add">Add</button>
+                <button class="btn" onclick=done()>Done</button>
+            </div>
+        </main>
+    </div>
+    <script src="../js/firebase.js" type="module"></script>
+    <script type="module">
+        import { getDatabase, ref, get, set, update, remove, child } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-database.js";
+        const db = getDatabase();
+        document.getElementById("btn1").onclick = change;
+        var q,o1,o2,o3,o4,a,Name,no=0;
+        document.getElementById("add").onclick=addquestion;
+        function getdata()
+        {
+         q = document.getElementById("question").value;
+         o1 = document.getElementById("option1").value;
+         o2 = document.getElementById("option2").value;
+         o3 = document.getElementById("option3").value;
+         o4 = document.getElementById("option4").value;
+         a=document.querySelector('input[name="answer"]:checked').value;
+         console.log(q,o1,o2,o3,o4,a);
+        }
+        function clear(){
+            q="";
+            o1="";
+            o2="";
+            o3="";
+            o4="";
+        }
+        function change() {
+            document.getElementsByClassName("display1")[0].style.display = "none";
+            document.getElementsByClassName("display2")[0].style.display = "block";
+            Name=document.getElementById("name").value;
+        }
+        function addquestion(){
+            getdata();
+            no++;
+            set(ref(db,"Quiz/"+Name+"/"+no),{
+                Question:q,
+                Name:o1,
+                Gender:o2,
+                Gender:o3,
+                Gender:o4,
+                Answer:a
+            }).then(()=>{
+                alert("Data stored Successfully")
+            }).catch((error)=>alert("unsuccessful",error));
+            clear();
+        }
+    </script>
+</body>
+
+</html>
