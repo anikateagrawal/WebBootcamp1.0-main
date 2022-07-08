@@ -113,8 +113,6 @@
             justify-content: space-evenly;
 
         }
-
-        
     </style>
 </head>
 
@@ -148,7 +146,7 @@
             <input type="radio" value="4" name="answer">option4
             <div class="button">
                 <button class="btn" id="add">Add</button>
-                <a href="./quizt.html"><button class="btn" >Done</button></a>
+                <a href="./quizt.html"><button class="btn">Done</button></a>
             </div>
         </main>
     </div>
@@ -165,11 +163,10 @@
             document.getElementsByClassName("display2")[0].style.display = "block";
             Name = sessionStorage.getItem("name");
         }
-        var questions=[];     
-        function readNo() { 
+        var questions = [];
+        function readNo() {
             get(ref(db, "Quiz/" + Name + "/")).then((snapshot) => {
-                snapshot.forEach(question =>
-                    {questions.push(question.val())});no=questions[questions.length-1].No;
+                snapshot.forEach(question => { questions.push(question.val()) }); no = questions[questions.length - 1].No;
             });
         }
         function getdata() {
@@ -181,11 +178,11 @@
             a = document.querySelector('input[name="answer"]:checked').value;
         }
         function clear() {
-            q = "";
-            o1 = "";
-            o2 = "";
-            o3 = "";
-            o4 = "";
+            document.getElementById("question").value = "";
+            document.getElementById("option1").value = "";
+            document.getElementById("option2").value = "";
+            document.getElementById("option3").value = "";
+            document.getElementById("option4").value = "";
         }
         function change() {
             document.getElementsByClassName("display1")[0].style.display = "none";
@@ -206,10 +203,11 @@
                 Option4: o4,
                 Answer: a
             }).then(() => {
-                alert("Data stored Successfully")
+                alert("Data stored Successfully");
             }).catch((error) => alert("unsuccessful", error));
             clear();
         }
     </script>
 </body>
+
 </html>
