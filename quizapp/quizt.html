@@ -31,11 +31,12 @@
             height: 100vh;
             background-color: coral;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             display: none;
         }
-        #result{
+        #result,.answers{
             background-color: white;
             width: 80%;
             border-radius: 20px;
@@ -44,6 +45,13 @@
             justify-content: center;
             align-items: center;
             font-size: xx-large;
+            padding: 20px;
+            margin: 20px;
+            flex-direction: column;
+        }
+        .answers{
+            width: 100%;
+            height: 100%;
         }
         .box {
             background-color: white;
@@ -56,22 +64,23 @@
             align-items: center;
         }
 
-        input[type="text"] {
+        #name{
             height: 30px;
             border-radius: 10px;
         }
 
-        #btn1 ,#btn2{
+        #btn1 ,#btn2,#btn3{
             width: 100px;
             height: 40px;
             font-size: large;
             border-radius: 10px;
         }
-
+        #btn3{
+            width: 200px;
+        }
         #questions {
             margin: auto;
             margin-top: 20px;
-            width: 90%;
             background-color: blanchedalmond;
             border-radius: 20px;
             font-size: xx-large;
@@ -83,6 +92,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
             margin-right: 20px;
         }
 
@@ -90,10 +100,31 @@
             height: 20px;
             width: 20px;
         }
-
-        .ques {
+        .b{
+            width: 300px;
+        }
+        .ques{
             margin: 20px;
         }
+        .btn{
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        input:disabled{
+            appearance: initial;
+            background-color: white;
+            border: 5px solid red;
+            border-radius: 50%;
+        }
+        input:checked:disabled{
+            appearance: initial;
+            background-color: white;
+            border: 5px solid green;
+            border-radius: 50%;
+        }
+        
     </style>
 </head>
 
@@ -109,9 +140,21 @@
         <section id="questions">
             <h1 align="center">Quiz</h1>
         </section>
+        <div class="btn">
+            <button id="btn2">submit</button>
+        </div>
+        <div class="btn">
+            <a href="./quiz.html"><button id="btn3">Go To Create Quiz</button></a>
+        </div>
     </div>
     <div id="display3">
         <div id="result"></div>
+        <div class="answers">
+            <h1 align="center">Answers</h1>
+        </div>
+        <div class="btn">
+            <a href="./quiz.html"><button id="btn3">Go To Create Quiz</button></a>
+        </div>
     </div>
     <script src="../js/firebase.js" type="module"></script>
     <script type="module">
@@ -129,7 +172,7 @@
             Name = sessionStorage.getItem("name");
             read();
         }
-
+        
         var ans = [];
         var questions = [];
 
@@ -156,27 +199,23 @@
                 d.className = "ques";
                 d.innerHTML = `<p>Q${n}. ${q}</p>
                 <div class="obox">
-                <div><label>Ans${n}. <input type="radio" name="answer${n}" value="1">
+                <div class="b"><label>Ans${n}. <input type="radio" name="answer${n}" value="1">
                 <span>${o1}</span>
                 </div>
-                <div><input type="radio" name="answer${n}" value="2">
+                <div class="b"><input type="radio" name="answer${n}" value="2">
                 <span>${o2}</span>
                 </div>
-                <div><input type="radio" name="answer${n}" value="3">
+                <div class="b"><input type="radio" name="answer${n}" value="3">
                 <span>${o3}</span></div>
-                <div><input type="radio" name="answer${n}" value="4">
+                <div class="b"><input type="radio" name="answer${n}" value="4">
                 <span>${o4}</span></div> 
                 <input type="radio" name="answer${n}" value="0" checked style="display:none"></div>`
                 sec.appendChild(d);
                 ans[0]=n;
                 ans[n]=a;
             });
-            var b = document.getElementById("questions");
-            var button = document.createElement("button");
-            button.id="btn2";
-            button.textContent = "submit";
+            var button = document.getElementById("btn2");
             button.onclick = check;
-            b.appendChild(button);
         }
 
 
@@ -191,7 +230,32 @@
             }
             document.getElementById("display3").style.display="flex";
             document.getElementById("result").textContent=`Your score is ${score} out of ${n}`;
-        
+            var sec=document.getElementsByClassName("answers")[0];
+            questions.forEach(question => {
+                let n = question.No, q = question.Question, o1 = question.Option1, o2 = question.Option2, o3 = question.Option3, o4 = question.Option4, a = question.Answer;
+                let d = document.createElement("div");
+                d.className = "ques";
+                d.innerHTML = `<p>Q${n}. ${q}</p>
+                <div class="obox">
+                <div class="b"><label for="answer${n}">Ans${n}. <input type="radio" name="ans${n}" value="1">
+                <span>${o1}</span>
+                </div>
+                <div class="b"><input type="radio" name="ans${n}" value="2">
+                <span>${o2}</span>
+                </div>
+                <div class="b"><input type="radio" name="ans${n}" value="3">
+                <span>${o3}</span></div>
+                <div class="b"><input type="radio" name="ans${n}" value="4">
+                <span>${o4}</span></div> 
+                </div>`
+                sec.appendChild(d);
+                document.getElementsByName(`ans${n}`)[ans[n]-1].checked=true;
+                document.getElementsByName(`ans${n}`)[0].disabled=true;
+                document.getElementsByName(`ans${n}`)[1].disabled=true;
+                document.getElementsByName(`ans${n}`)[2].disabled=true;
+                document.getElementsByName(`ans${n}`)[3].disabled=true;
+
+            });
         }
     </script>
 </body>
