@@ -14,7 +14,7 @@ a{
     display: none;
     position: fixed;
     top: 0;
-    background-color: darkslategrey;
+    background-color: rgba(47, 79, 79, 0.66);
     z-index: 10;
 }
 @keyframes side {
