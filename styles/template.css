@@ -4,6 +4,10 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
+a{
+    text-decoration: none;
+
+}
 #side
 {
     width: 100%;
@@ -11,6 +15,7 @@
     position: fixed;
     top: 0;
     background-color: darkslategrey;
+    z-index: 10;
 }
 @keyframes side {
     0%{
@@ -45,6 +50,13 @@
     color: white;
     text-decoration: none;
 }
+.logo{
+    border: 3px solid blue;
+    padding: 10px;
+    border-radius: 0px 20px;
+    margin-left: 50px;
+    text-shadow: 1px 1px 3px blue;
+}
 #nav ul{
 display: flex;
 justify-content: right;
@@ -52,30 +64,32 @@ align-items: center;
 flex-wrap: wrap;
 }
 #nav a{
-color: white;
+color: black;
 text-decoration: none;
 padding: 10px;
-border-radius: 20px;
+border-radius: 5px;
+text-shadow: 1px 1px 2px;
 }
 #nav li{
 border: 0px;
-margin: 20px;
+margin: 20px 5px;
 border-style: solid;
 display: inline;
-font-size:xx-large;
+font-size:large;
 text-align: center;
 }
 #nav a:hover{
-background-color: white;
-color: black;
+color: rgb(9, 73, 249);
+text-decoration: underline;
 }
 #nav{
     position: sticky;
     top: 0;
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
     align-items: center;
-    background-color: gray;
+    background-color: white;
+    z-index: 10;
 }
 .bar{
     width: 70px;
@@ -84,26 +98,23 @@ color: black;
     align-items: center;
     display: none;
     margin: 20px;
+    text-shadow: 1px 1px 3px;
+    cursor: pointer;
 }
 .fa-bars{
     font-size: xx-large;
-    color: white;
     pointer-events: none;
 }
-.banner {
-    height: 100vh;
-    background-image:linear-gradient(to top right,red,orange,blue);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.bar:hover{
+    color:rgb(9, 73, 249); 
 }
 
 .heading {
     text-align: center;
     color: black;
-    margin-top: 10px;
+    padding-top: 70px;
     margin-bottom: 10px;
-    text-shadow: 0px 0px 3px red ;
+    text-shadow: 1px 1px 3px blue ;
     box-shadow: red 2px;
 }
 
@@ -112,16 +123,29 @@ color: black;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
-
-#sec1 h2 {
-    width: 300px;
-    height: 200px;
-    background-image:linear-gradient(to top right,blue,red,green) ;
+.p{
+    height: 100%;
+    width: 100%;
     border-radius: 50%;
+}
+#sec1 a:hover{
+    transform: scale(1.2);
+}
+#sec1 a{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin:20px
+    flex-direction: column;
+    color: black;
+    text-shadow: 1px 1px 3px red;
+    padding: 20px;
+}
+#sec1 .team {
+    width: 250px;
+    height: 200px;
+    border-radius: 50%;
+    margin:20px;
+    box-shadow: 5px 5px 10px black;
 }
 
 #sec2 {
