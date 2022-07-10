@@ -103,6 +103,7 @@ a {
     transform: scale(1.2);
 }
 #nav {
+    margin-top: 10px;
     position: sticky;
     top: 0;
     display: flex;
@@ -176,18 +177,45 @@ a {
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+.w{
+    width: 45%;
+    height: 100%;
+    margin: 20px;
+}
+
 
 #sec2 main {
-    width: 600px;
-    height: 500px;
+    height: 100%;
     background-color: cornflowerblue;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+}
+.quiz{
+    height: 70%;
+}
+.info{
+    height: 30%;
+}
+dt
+{
+    font-size: xx-large;
+    color: black;
+    text-shadow: 1px 1px 3px pink;
+    padding: 10px;
+    text-decoration: underline;
+}
+dd{
+    font-size: large;
+    color: red;
+    padding: 20px;
+    text-shadow: 1px 1px 3px blue;
 }
 
 #sec2 article {
-    width: 600px;
+    width: 45%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -226,12 +254,15 @@ footer {
     align-items: center;
 }
 
-@media screen and (max-width:900px) {
+@media screen and (max-width:650px) {
     #nav ul {
         display: none;
     }
 
     #nav .bar {
         display: flex;
+    }
+    #sec2 article,.w{
+        width: 100%;
     }
 }
