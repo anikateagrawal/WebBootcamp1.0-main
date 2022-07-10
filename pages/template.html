@@ -5,14 +5,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../styles/styles.css">
     <title>Template</title>
 </head>
-
 <body>
-    <header>
-        <h1>HEADER</h1>
-    </header>
+    <nav id="side">
+        <div class="cross"><i class="fa-solid fa-xmark"></i></div>
+        <ul>
+            <li><a href="#"> Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Technologies</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav >
+        <nav id="nav">
+            <ul>
+                <li><a href="#"> Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="#">Technologies</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="bar"><i class="fa-solid fa-bars"></i></div>
+        </nav>
     <main class="banner">
         <h1>BANNER</h1>
     </main>
@@ -51,6 +70,20 @@
     <footer>
         <h1>FOOTER</h1>
     </footer>
+    <script>
+        document.getElementsByClassName("bar")[0].onclick=()=>{
+            document.getElementById("nav").style.display="none";
+            document.getElementById('side').style.display="block";
+            document.getElementById('side').style.animation="side 1s linear";
+        }
+        document.getElementsByClassName("cross")[0].onclick=()=>{
+
+            document.getElementById('side').style.animation="side2 1s linear";
+            setTimeout(()=>{document.getElementById('side').style.display="none";
+            document.getElementById("nav").style.display="flex";},1000);
+            
+        }
+    </script>
 </body>
 
 </html>
