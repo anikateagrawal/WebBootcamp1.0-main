@@ -1,15 +1,16 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
-a{
+
+a {
     text-decoration: none;
 
 }
-#side
-{
+
+#side {
     width: 100%;
     display: none;
     position: fixed;
@@ -17,72 +18,91 @@ a{
     background-color: rgba(47, 79, 79, 0.66);
     z-index: 10;
 }
+
 @keyframes side {
-    0%{
+    0% {
         transform: translateX(100%);
     }
-    100%{
+
+    100% {
         transform: translateX(0);
     }
 }
+
 @keyframes side2 {
-    0%{
+    0% {
         transform: translateX(0%);
     }
-    100%{
+
+    100% {
         transform: translateX(100%);
     }
 }
-#side li{
+
+#side li {
     text-align: center;
     padding: 20px;
     color: white;
     font-size: xx-large;
     list-style-type: none;
 }
-.cross{
+#side li:hover{
+    transform: scale(1.2);
+    text-decoration: underline;
+}
+.cross {
     padding: 20px;
     text-align: right;
     color: white;
     font-size: xx-large;
 }
-#side a{
+
+#side a {
     color: white;
     text-decoration: none;
 }
-.logo{
+
+.logo {
     border: 3px solid blue;
     padding: 10px;
     border-radius: 0px 20px;
     margin-left: 50px;
     text-shadow: 1px 1px 3px blue;
 }
-#nav ul{
-display: flex;
-justify-content: right;
-align-items: center;
-flex-wrap: wrap;
+
+#nav ul {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-right: 20px;
 }
-#nav a{
-color: black;
-text-decoration: none;
-padding: 10px;
-border-radius: 5px;
-text-shadow: 1px 1px 2px;
+
+#nav a {
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    text-shadow: 1px 1px 2px;
 }
-#nav li{
-border: 0px;
-margin: 20px 5px;
-border-style: solid;
-display: inline;
-font-size:large;
-text-align: center;
+
+#nav li {
+    border: 0px;
+    margin: 20px 5px;
+    border-style: solid;
+    display: inline;
+    font-size: large;
+    text-align: center;
 }
-#nav a:hover{
-color: rgb(9, 73, 249);
-text-decoration: underline;
+
+#nav a:hover {
+    color: rgb(9, 73, 249);
+    text-decoration: underline;
 }
-#nav{
+#nav li:hover{
+    transform: scale(1.2);
+}
+#nav {
     position: sticky;
     top: 0;
     display: flex;
@@ -91,7 +111,8 @@ text-decoration: underline;
     background-color: white;
     z-index: 10;
 }
-.bar{
+
+.bar {
     width: 70px;
     display: flex;
     justify-content: center;
@@ -101,12 +122,10 @@ text-decoration: underline;
     text-shadow: 1px 1px 3px;
     cursor: pointer;
 }
-.fa-bars{
+
+.fa-bars {
     font-size: xx-large;
     pointer-events: none;
-}
-.bar:hover{
-    color:rgb(9, 73, 249); 
 }
 
 .heading {
@@ -114,7 +133,7 @@ text-decoration: underline;
     color: black;
     padding-top: 70px;
     margin-bottom: 10px;
-    text-shadow: 1px 1px 3px blue ;
+    text-shadow: 1px 1px 3px blue;
     box-shadow: red 2px;
 }
 
@@ -123,15 +142,18 @@ text-decoration: underline;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
-.p{
+
+.p {
     height: 100%;
     width: 100%;
     border-radius: 50%;
 }
-#sec1 a:hover{
+
+#sec1 a:hover {
     transform: scale(1.2);
 }
-#sec1 a{
+
+#sec1 a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -140,11 +162,12 @@ text-decoration: underline;
     text-shadow: 1px 1px 3px red;
     padding: 20px;
 }
+
 #sec1 .team {
     width: 250px;
     height: 200px;
     border-radius: 50%;
-    margin:20px;
+    margin: 20px;
     box-shadow: 5px 5px 10px black;
 }
 
@@ -204,10 +227,11 @@ footer {
 }
 
 @media screen and (max-width:900px) {
-    #nav ul{
+    #nav ul {
         display: none;
     }
-    #nav .bar{
+
+    #nav .bar {
         display: flex;
     }
 }
