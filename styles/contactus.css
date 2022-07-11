@@ -1,0 +1,55 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#contact{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: cornflowerblue;
+}
+.con{
+    width:600px;
+    height: 400px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px ;
+    font-size: 16px;
+}
+.contact{
+    padding: 20px;
+}
+#name,#email,#message{
+    width: 100%;
+    height: 35px;
+    display: block;
+    padding: 5px;
+    border: none;
+    border: 2px solid;
+    border-color: lightgrey;
+    outline: none;
+    font-size: large;
+}
+.butns{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+.butn{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: blue;
+    border: none;
+    color: white;
+}
+.butn:active{
+    background-color: red;
+}
+#message{
+    height: 100px;
+}

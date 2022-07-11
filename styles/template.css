@@ -9,7 +9,9 @@ a {
     text-decoration: none;
 
 }
-
+.display2{
+    display: none;
+}
 #side {
     width: 100%;
     display: none;
@@ -50,6 +52,7 @@ a {
     transform: scale(1.2);
     text-decoration: underline;
 }
+
 .cross {
     padding: 20px;
     text-align: right;
@@ -247,11 +250,11 @@ dd{
 }
 
 footer {
-    height: 100px;
     background-color: pink;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 @media screen and (max-width:650px) {

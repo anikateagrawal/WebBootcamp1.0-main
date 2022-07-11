@@ -11,19 +11,32 @@
     <link rel="stylesheet" href="../styles/template.css">
     <link rel="stylesheet" href="../styles/image-carousel.css">
     <link rel="shortcut icon" href="../images/sunnyPlant.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/contactus.css">
+    <link rel="stylesheet" href="../styles/loader.css">
+    <link rel="stylesheet" href="../styles/footer.css">
     <title>Group Project</title>
 </head>
+
 <body>
-    <nav id="side">
-        <div class="cross"><i class="fa-solid fa-xmark"></i></div>
-        <ul>
-            <li><a href="#home"> Home</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#webapps">Web Apps</a></li>
-            <li><a href="#">Technologies</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav >
+    <div class="display1">
+        <div class="ball">
+        </div>
+        <div class="shadow"></div>
+        <h1>
+            Loading <span class="dot">...</span>
+        </h1>
+    </div>
+    <div class="display2">
+        <nav id="side">
+            <div class="cross"><i class="fa-solid fa-xmark"></i></div>
+            <ul>
+                <li><a href="#home"> Home</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#webapps">Web Apps</a></li>
+                <li><a href="#">Technologies</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
         <nav id="nav">
             <div class="logo">WebDev</div>
             <ul>
@@ -31,63 +44,138 @@
                 <li><a href="#team">Team</a></li>
                 <li><a href="#webapps">Web Apps</a></li>
                 <li><a href="#">Technologies</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="bar"><i class="fa-solid fa-bars"></i></div>
         </nav>
         <div class="container" id="home">
-            <div class="home" >Welcome To Our Website</div>
+            <div class="home">Welcome To Our Website</div>
+            <h1 id="skills">Skills Learnt:</h1>
             <div class="box">
                 <button class="btn" id="btn1"><</button>
-                <button class="btn" id="btn2">></button>
-                <div class="carousel">
-                    <div class="image main" id="i0"><img class="i"src="../images/image1.avif" alt="image1" ><p>Image 1</p></div>
-                    <div class="image " id="i1"><img class="i" src="../images/image2.avif" alt="image2" ><p>Image 2</p></div>
-                    <div class="image " id="i2"><img class="i" src="../images/image3.avif" alt="image3" ><p>Image 3</p></div>
-                    <div class="image " id="i3"><img class="i" src="../images/image4.avif" alt="image4" ><p>Image 4</p></div>
-                </div>
+                        <button class="btn" id="btn2">></button>
+                        <div class="carousel">
+                            <div class="image main" id="i0"><img class="i" src="../images/introduction.png" alt="HTML">
+                                <p>HTML 5</p>
+                            </div>
+                            <div class="image " id="i1"><img class="i" src="../images/css.png" alt="CSS">
+                                <p>CSS 3</p>
+                            </div>
+                            <div class="image " id="i2"><img class="i" src="../images/java-script.jpg" alt="Java Script">
+                                <p>Java Script</p>
+                            </div>
+                            <div class="image " id="i3"><img class="i" src="../images/bootstrap.png" alt="Bootstrap">
+                                <p>Bootstrap 5</p>
+                            </div>
+                        </div>
             </div>
         </div>
-    <h1 class="heading" id="team">Team Members</h1>
-    <section id="sec1">
-        <a href=""><div class="team" target="_blank"><img class="p"src="" alt="Divyanshi Varshney"></div><p>Divyanshi Varshney</p></a>
-        <a href=""><div class="team" target="_blank"><img class="p"src="" alt="Aastha Goyal"></div><p>Aastha Goyal</p></a>
-        <a href=""><div class="team" target="_blank"><img class="p"src="" alt="Chhaya Chaudhary"></div><p>Chhaya Chaudhary</p></a>
-        <a href=""><div class="team" target="_blank"><img class="p"src="" alt="Monishka Singh"></div><p>Monishka Singh</p></a>
-        <a href=""><div class="team" target="_blank"><img class="p"src="" alt="Gursha Agrawal"></div><p>Gursha Agrawal</p></a>
-        <a href=""><div class="team" target="_blank"><img class="p"src="" alt="Anwesha Roy"></div><p>Anwesha Roy</p></a>
-        <a href=""><div class="team" target="_blank"><img class="p"src="" alt="Disha Agrawal"></div><p>Disha Agrawal</p></a>
-        <a href="https://anikateagrawal.github.io/My-Resume/" target="_blank"><div class="team"><img class="p"src="../images/Anikate.jpg" alt="Anikate Agrawal"></div><p>Anikate Agrawal</p></a>
-    </section>
-    <h1 class="heading" id="webapps">Web Apps</h1>
-    <section id="sec2">
-        <a href="../quizapp/index.html" class="w"><main >
-            <div class="quiz"><img src="../images/quizimg.png" alt="Quiz Image" height="100%" width="100%"></div>
-            <div class="info"><dl><dt>Quiz Page</dt><dd>Here you can create your own quiz and share quiz name with your friends. Friends can go to play quiz page and use the quiz name provided to attempt the quiz.</dd></dl>
+        <h1 class="heading" id="team">Team Members</h1>
+        <section id="sec1">
+            <a href="https://divyanshi-varshney2002.github.io/My-Resume/">
+                <div class="team" target="_blank"><img class="p" src="" alt="Divyanshi Varshney"></div>
+                <p>Divyanshi Varshney</p>
+            </a>
+            <a href="">
+                <div class="team" target="_blank"><img class="p" src="" alt="Aastha Goyal"></div>
+                <p>Aastha Goyal</p>
+            </a>
+            <a href="">
+                <div class="team" target="_blank"><img class="p" src="" alt="Chhaya Chaudhary"></div>
+                <p>Chhaya Chaudhary</p>
+            </a>
+            <a href="">
+                <div class="team" target="_blank"><img class="p" src="" alt="Monishka Singh"></div>
+                <p>Monishka Singh</p>
+            </a>
+            <a href="">
+                <div class="team" target="_blank"><img class="p" src="" alt="Gursha Agrawal"></div>
+                <p>Gursha Agrawal</p>
+            </a>
+            <a href="">
+                <div class="team" target="_blank"><img class="p" src="" alt="Anwesha Roy"></div>
+                <p>Anwesha Roy</p>
+            </a>
+            <a href="">
+                <div class="team" target="_blank"><img class="p" src="../images/disha.jpg" alt="Disha Agrawal"></div>
+                <p>Disha Agrawal</p>
+            </a>
+            <a href="https://anikateagrawal.github.io/My-Resume/" target="_blank">
+                <div class="team"><img class="p" src="../images/Anikate.jpg" alt="Anikate Agrawal"></div>
+                <p>Anikate Agrawal</p>
+            </a>
+        </section>
+        <h1 class="heading" id="webapps">Web Apps</h1>
+        <section id="sec2">
+            <a href="../quizapp/index.html" class="w">
+                <main>
+                    <div class="quiz"><img src="../images/quizimg.png" alt="Quiz Image" height="100%" width="100%">
+                    </div>
+                    <div class="info">
+                        <dl>
+                            <dt>Quiz Page</dt>
+                            <dd>Here you can create your own quiz and share quiz name with your friends. Friends can go
+                                to play quiz page and use the quiz name provided to attempt the quiz.</dd>
+                        </dl>
+                    </div>
+                </main>
+            </a>
+            <article>
+                <aside>
+                    <h1>ARTICLE 1</h1>
+                </aside>
+                <aside>
+                    <h1>ARTICLE 2</h1>
+                </aside>
+                <aside>
+                    <h1>ARTICLE 3</h1>
+                </aside>
+            </article>
+        </section>
+        <h1 class="heading">SECTION 3</h1>
+        <section id="sec3">
+            <h1>BOX 1</h1>
+            <h1>BOX 2</h1>
+            <h1>BOX 3</h1>
+            <h1>BOX 4</h1>
+        </section>
+        <section id="contact">
+            <div class="con">
+                <h1 align="center" class=".contact">Contact Us</h1>
+                <input type="text" id="name" placeholder="Name"><br>
+                <input type="email" id="email" placeholder="Email"><br>
+                <textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea><br>
+                <div class="butns">
+                    <button class="butn">SEND</button>
+                </div>
             </div>
-        </main></a>
-        <article>
-            <aside>
-                <h1>ARTICLE 1</h1>
-            </aside>
-            <aside>
-                <h1>ARTICLE 2</h1>
-            </aside>
-            <aside>
-                <h1>ARTICLE 3</h1>
-            </aside>
-        </article>
-    </section>
-    <h1 class="heading">SECTION 3</h1>
-    <section id="sec3">
-        <h1>BOX 1</h1>
-        <h1>BOX 2</h1>
-        <h1>BOX 3</h1>
-        <h1>BOX 4</h1>
-    </section>
-    <footer>
-        <h1>FOOTER</h1>
-    </footer>
+
+            <script type="module" src="../js/firebase.js"></script>
+            <script type="module" src="../js/contactus.js"></script>
+        </section>
+        <footer>
+            <h3 style="color:red;margin-top: 20px;">&copy; copyrighted, designed and developed by Gla Students</h3>
+            <div class="students">
+            <div class="list1">
+                <ul>
+                    <li>Divyanshi Varshney  U. Rno.</li>
+                    <li>Anikate Agrawal  201500088</li>
+                    <li>Aastha Goyal  U. Rno.</li>
+                    <li>Disha Agrawal  U. Rno.</li>
+                </ul>
+            </div>
+            <div class="list2">
+                <ul>
+                    <li>Monishka Singh U. Rno.</li>
+                    <li>Chhaya Chaudhary U. Rno.</li>
+                    <li>Gursha Agrawal U. Rno.</li>
+                    <li>Anwesha Roy U. Rno.</li>
+                </ul>
+            </div>
+        </div>
+        </footer>
+    </div>
+    <script src="../js/loader.js"></script>
     <script src="../js/template.js"></script>
     <script src="../js/image-carousel.js"></script>
 </body>

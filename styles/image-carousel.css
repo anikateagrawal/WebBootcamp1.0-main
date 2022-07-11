@@ -6,10 +6,15 @@ justify-content: center;
 align-items: center;
 padding: 50px 10px;
 }
+#skills{
+    width: 100%;
+    text-align: left;
+    padding: 20px;
+}
 .home{
     font-size: 50px;
     color: red;
-    text-shadow: 2px 2px 5px green;
+    text-shadow: 2px 2px 5px black;
 }
 .box{
     width: 100%;

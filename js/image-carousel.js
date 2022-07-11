@@ -17,5 +17,5 @@ var btn1=document.getElementById("btn1");
         window.onload=change;
         function change()
         {   
-            setInterval(next,3000);
+            setInterval(next,6000);
         }
