@@ -7,13 +7,13 @@
     flex-wrap: wrap;
 }
 .list1{
-    width: 40%;
+    width: 48%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .list2{
-    width: 40%;
+    width: 48%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,4 +25,18 @@
     .list2{
         width: 100%;
     }
+}
+.students ul {
+    width: 100%;
+}
+.students ul li{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.students p{
+    width: 40%;
+    text-align: left;
+    padding: 10px;
 }
