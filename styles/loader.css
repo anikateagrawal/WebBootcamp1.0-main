@@ -36,7 +36,7 @@
     width: 50px;
     background-color: gray;
     border-radius: 50%;
-    animation: shadow 1s linear infinite;
+    animation: shadow 2s linear infinite;
 }
 @keyframes shadow {
     0%{
@@ -53,7 +53,7 @@
     }
 }
 .dot{
-    animation: span 1s linear infinite;
+    animation: span 2s linear infinite;
 }
 @keyframes span {
     0%{
