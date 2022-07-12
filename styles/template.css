@@ -262,7 +262,8 @@ dd{
 #sec3 a {
     width: 300px;
     background-color: red;
-    border-radius: 0px 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
