@@ -270,6 +270,7 @@ dd{
 }
 #sec3 a:hover{
     transform: scale(1.1);
+    background-color: rgba(0, 128, 0, 0.735);
 }
 footer {
     background-color: lightgray;
