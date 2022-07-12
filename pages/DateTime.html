@@ -6,19 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DateTime</title>
     <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-size: 60px;
+        }
         body{
-            background-image: linear-gradient(to bottom,pink,yellow,orange);
+            background-size: cover;
+            width: 100%;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             font-size: xx-large;
+            color: white;
         }
         input[type="text"]{
             background: none;
             font-size: xx-large;
             text-align: center;
+            color: white;
+            outline: 0;
+            border: 0;
         }
         #time{
             font-size:150px;
@@ -39,21 +50,25 @@
         var h=new Date().getHours();
         if(h>=4&&h<12){
             document.getElementById("clock").innerText="Good Morning";
+            document.getElementsByTagName("body")[0].style.backgroundImage=`url("../images/morning.jpg")`;
         }
         else if(h>=12&&h<16){
             document.getElementById("clock").innerText="Good Afternoon";
+            document.getElementsByTagName("body")[0].style.backgroundImage=`url("../images/afternoon.avif")`;
         }
         else if(h>=16&&h<20){
             document.getElementById("clock").innerText="Good Evening";
+            document.getElementsByTagName("body")[0].style.backgroundImage=`url("../images/evening.avif")`;
         }
         else if(h>=20||h<4){
             document.getElementById("clock").innerText="Good night";
+            document.getElementsByTagName("body")[0].style.backgroundImage= `url("../images/night.avif")`;
         }
         document.getElementById("date").innerText=new Date().toDateString();
         var n=document.getElementById("name");
         if(localStorage.getItem("name")==null)
         {
-           n.value="Enter Name"; 
+           n.value=""; 
         }
         else n.value=localStorage.getItem("name");
         function set()
