@@ -231,6 +231,9 @@ dd{
 #sec2 a{
     margin: 10px;
 }
+#sec2 a:hover{
+    transform: scale(1.1);
+}
 #sec2 aside {
     height: 100%;
     display: flex;
@@ -256,9 +259,8 @@ dd{
     flex-wrap: wrap;
 }
 
-#sec3 h1 {
+#sec3 a {
     width: 300px;
-    height: 300px;
     background-color: red;
     border-radius: 0px 20px;
     display: flex;
@@ -266,7 +268,9 @@ dd{
     align-items: center;
     margin: 20px;
 }
-
+#sec3 a:hover{
+    transform: scale(1.1);
+}
 footer {
     background-color: lightgray;
     display: flex;
