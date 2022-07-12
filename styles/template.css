@@ -189,7 +189,6 @@ a {
 
 #sec2 main {
     height: 100%;
-    background-color: cornflowerblue;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -201,7 +200,7 @@ a {
 }
 .info{
     height: 30%;
-    background-color: red;
+    background-color: rgba(0, 0, 255, 0.441);
     border-radius: 20px;
     box-shadow: 5px 5px 10px black;
 
@@ -222,20 +221,35 @@ dd{
 }
 
 #sec2 article {
+    overflow: hidden;
+    border-radius: 20px;
     width: 45%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
 }
-
+#sec2 a{
+    margin: 10px;
+}
 #sec2 aside {
-    height: 150px;
-    background-color: burlywood;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 20px;
 }
-
+.im{
+    height: 100%;
+    width: 30%;
+}
+.rinfo{
+    height: 100%;
+    width: 70%;
+    background-color: rgba(0, 0, 255, 0.441);
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 5px 5px 10px black;
+}
 #sec3 {
     display: flex;
     justify-content: space-evenly;
