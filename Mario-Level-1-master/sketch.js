@@ -47,7 +47,7 @@ function draw() {
         if (bg.x < 100) {
             bg.x = bg.width / 4;
         }
-        if (keyDown("space")) {
+        if (keyDown("space")||mouseDown()) {
             mario.velocityY = -10;
             jump_sound.play();
         }
