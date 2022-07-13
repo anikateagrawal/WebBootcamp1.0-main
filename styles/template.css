@@ -261,6 +261,7 @@ dd{
 
 #sec3 a {
     width: 300px;
+    height: 350px;
     background-color: red;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
