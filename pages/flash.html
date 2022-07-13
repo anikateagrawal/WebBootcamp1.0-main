@@ -18,6 +18,7 @@
             margin: none;
             animation: building 1s linear 10;
             animation-play-state: paused;
+            user-select: none;
         }
 
         @keyframes building {
@@ -44,8 +45,9 @@
             animation-play-state: paused;
             cursor: pointer;
             display: flex;
-            justify-content: center;
+            justify-content: left;
             align-items: center;
+            user-select: none;
         }
 
         h2 {
@@ -73,6 +75,12 @@
             background-color: black;
             justify-content: center;
             align-items: center;
+        }
+        @media  screen  and (min-width:900px){
+            #flash{
+                width: 500px;
+            }
+            
         }
     </style>
 </head>
