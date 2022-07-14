@@ -27,7 +27,8 @@
             height: 100vh;
             display: none;
         }
-        #display3{
+
+        #display3 {
             height: 100vh;
             background-color: coral;
             display: flex;
@@ -36,7 +37,9 @@
             align-items: center;
             display: none;
         }
-        #result,.answers{
+
+        #result,
+        .answers {
             background-color: white;
             width: 80%;
             border-radius: 20px;
@@ -49,10 +52,12 @@
             margin: 20px;
             flex-direction: column;
         }
-        .answers{
+
+        .answers {
             width: 100%;
             height: 100%;
         }
+
         .box {
             background-color: white;
             width: 400px;
@@ -64,21 +69,26 @@
             align-items: center;
         }
 
-        #name{
+        #name {
             height: 30px;
             border-radius: 10px;
             padding: 10px;
         }
 
-        #btn1 ,#btn2,#btn3{
+        #btn1,
+        #btn2,
+        #btn3 {
             width: 100px;
             height: 40px;
             font-size: large;
             border-radius: 10px;
+            cursor: pointer;
         }
-        #btn3{
+
+        #btn3 {
             width: 200px;
         }
+
         #questions {
             margin: auto;
             margin-top: 20px;
@@ -101,31 +111,35 @@
             height: 20px;
             width: 20px;
         }
-        .b{
+
+        .b {
             width: 300px;
         }
-        .ques{
+
+        .ques {
             margin: 20px;
         }
-        .btn{
+
+        .btn {
             margin: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        input:disabled{
+
+        input:disabled {
             appearance: initial;
             background-color: white;
             border: 5px solid red;
             border-radius: 50%;
         }
-        input:checked:disabled{
+
+        input:checked:disabled {
             appearance: initial;
             background-color: white;
             border: 5px solid green;
             border-radius: 50%;
         }
-        
     </style>
 </head>
 
@@ -173,7 +187,7 @@
             Name = sessionStorage.getItem("name");
             read();
         }
-        
+
         var ans = [];
         var questions = [];
 
@@ -185,11 +199,19 @@
         }
 
         function change() {
-            document.getElementsByClassName("display1")[0].style.display = "none";
-            document.getElementsByClassName("display2")[0].style.display = "block";
             Name = document.getElementById("name").value;
-            sessionStorage.setItem("name", Name);
-            read();
+            get(ref(db,"Quiz/"+Name)).then((snapshot)=>{
+                if(snapshot.exists()){
+                    document.getElementsByClassName("display1")[0].style.display = "none";
+                    document.getElementsByClassName("display2")[0].style.display = "block";
+                    sessionStorage.setItem("name", Name);
+                    read();
+                }
+                else {
+                    alert("Quiz not found. Please check Quiz Name");
+                }
+            })
+
         }
 
         function fetch() {
@@ -212,8 +234,8 @@
                 <span>${o4}</span></div> 
                 <input type="radio" name="answer${n}" value="0" checked style="display:none"></div>`
                 sec.appendChild(d);
-                ans[0]=n;
-                ans[n]=a;
+                ans[0] = n;
+                ans[n] = a;
             });
             var button = document.getElementById("btn2");
             button.onclick = check;
@@ -222,16 +244,16 @@
 
         function check() {
             document.getElementById("display2").style.display = "none";
-            let n=ans[0];
+            let n = ans[0];
             let score = 0;
             for (let i = 1; i <= n; i++) {
                 let nn = "answer" + i;
                 let a = document.querySelector(`input[name=${nn}]:checked`).value;
                 if (a == ans[i]) score++;
             }
-            document.getElementById("display3").style.display="flex";
-            document.getElementById("result").textContent=`Your score is ${score} out of ${n}`;
-            var sec=document.getElementsByClassName("answers")[0];
+            document.getElementById("display3").style.display = "flex";
+            document.getElementById("result").textContent = `Your score is ${score} out of ${n}`;
+            var sec = document.getElementsByClassName("answers")[0];
             questions.forEach(question => {
                 let n = question.No, q = question.Question, o1 = question.Option1, o2 = question.Option2, o3 = question.Option3, o4 = question.Option4, a = question.Answer;
                 let d = document.createElement("div");
@@ -250,11 +272,11 @@
                 <span>${o4}</span></div> 
                 </div>`
                 sec.appendChild(d);
-                document.getElementsByName(`ans${n}`)[ans[n]-1].checked=true;
-                document.getElementsByName(`ans${n}`)[0].disabled=true;
-                document.getElementsByName(`ans${n}`)[1].disabled=true;
-                document.getElementsByName(`ans${n}`)[2].disabled=true;
-                document.getElementsByName(`ans${n}`)[3].disabled=true;
+                document.getElementsByName(`ans${n}`)[ans[n] - 1].checked = true;
+                document.getElementsByName(`ans${n}`)[0].disabled = true;
+                document.getElementsByName(`ans${n}`)[1].disabled = true;
+                document.getElementsByName(`ans${n}`)[2].disabled = true;
+                document.getElementsByName(`ans${n}`)[3].disabled = true;
                 sessionStorage.clear();
             });
         }
