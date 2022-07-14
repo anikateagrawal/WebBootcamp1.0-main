@@ -12,6 +12,7 @@
             margin: 0;
             box-sizing: border-box;
             font-family: Arial, Helvetica, sans-serif;
+            user-select: none;
         }
 
         .display1 {
@@ -21,6 +22,7 @@
             justify-content: center;
             align-items: center;
             font-size: large;
+            flex-direction: column;
         }
 
         .display2 {
@@ -140,6 +142,23 @@
             border: 5px solid green;
             border-radius: 50%;
         }
+        .list{
+            background-color: rgba(0, 0, 255, 0.546);
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 20px;
+            height: 300px;
+            overflow:auto;
+        }
+        .list td{
+            width: 250px;
+            padding: 10px;
+            cursor: pointer;
+            background-color: white;
+        }
+        caption{
+            padding: 10px;
+        }
     </style>
 </head>
 
@@ -149,6 +168,11 @@
             <div>
                 Enter Quiz Name: <input type="text" id="name"></div>
             <button id="btn1">Submit</button>
+        </div>
+        <div class="list">
+            <table id="table" border="5">
+                <caption>Available Quizes</caption>
+            </table>
         </div>
     </div>
     <div class="display2" id="display2">
@@ -179,7 +203,22 @@
 
         document.getElementById("btn1").onclick = change;
         var Name;
-
+        window.onload=quizlist;
+        function quizlist(){
+            var t=document.getElementById("table");
+            get(ref(db,"Quiz/")).then((snapshot)=>{
+                snapshot.forEach(snapshot=>{
+                    let tr=document.createElement("tr");
+                    t.appendChild(tr);
+                    let td=document.createElement("td");
+                    tr.appendChild(td);
+                    td.textContent=snapshot.ref._path.pieces_[1];
+                    td.onclick=()=>{
+                        document.getElementById("name").value=td.textContent;
+                    }
+                })
+            })
+        }
 
         if (!sessionStorage.getItem("name") == "") {
             document.getElementsByClassName("display1")[0].style.display = "none";
