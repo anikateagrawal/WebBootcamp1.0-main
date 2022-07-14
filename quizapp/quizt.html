@@ -139,21 +139,24 @@
             border: 5px solid green;
             border-radius: 50%;
         }
-        .list{
+
+        .list {
             background-color: rgba(0, 0, 255, 0.546);
             margin-top: 20px;
             padding: 20px;
             border-radius: 20px;
             height: 300px;
-            overflow:auto;
+            overflow: auto;
         }
-        .list td{
+
+        .list td {
             width: 250px;
             padding: 10px;
             cursor: pointer;
             background-color: white;
         }
-        caption{
+
+        caption {
             padding: 10px;
         }
     </style>
@@ -200,18 +203,18 @@
 
         document.getElementById("btn1").onclick = change;
         var Name;
-        window.onload=quizlist;
-        function quizlist(){
-            var t=document.getElementById("table");
-            get(ref(db,"Quiz/")).then((snapshot)=>{
-                snapshot.forEach(snapshot=>{
-                    let tr=document.createElement("tr");
+        window.onload = quizlist;
+        function quizlist() {
+            var t = document.getElementById("table");
+            get(ref(db, "Quiz/")).then((snapshot) => {
+                snapshot.forEach(snapshot => {
+                    let tr = document.createElement("tr");
                     t.appendChild(tr);
-                    let td=document.createElement("td");
+                    let td = document.createElement("td");
                     tr.appendChild(td);
-                    td.textContent=snapshot.ref._path.pieces_[1];
-                    td.onclick=()=>{
-                        document.getElementById("name").value=td.textContent;
+                    td.textContent = snapshot.ref._path.pieces_[1];
+                    td.onclick = () => {
+                        document.getElementById("name").value = td.textContent;
                     }
                 })
             })
@@ -236,8 +239,8 @@
 
         function change() {
             Name = document.getElementById("name").value;
-            get(ref(db,"Quiz/"+Name)).then((snapshot)=>{
-                if(snapshot.exists()){
+            get(ref(db, "Quiz/" + Name)).then((snapshot) => {
+                if (snapshot.exists()) {
                     document.getElementsByClassName("display1")[0].style.display = "none";
                     document.getElementsByClassName("display2")[0].style.display = "block";
                     sessionStorage.setItem("name", Name);
@@ -313,6 +316,8 @@
                 document.getElementsByName(`ans${n}`)[1].disabled = true;
                 document.getElementsByName(`ans${n}`)[2].disabled = true;
                 document.getElementsByName(`ans${n}`)[3].disabled = true;
+                let b = document.querySelector(`input[name="answer${n}"]:checked`).value;
+                document.getElementsByName(`ans${n}`)[b-1].style ="background-color: blue;";
                 sessionStorage.clear();
             });
         }
