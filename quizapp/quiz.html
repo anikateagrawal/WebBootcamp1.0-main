@@ -233,9 +233,10 @@
             document.getElementsByClassName("display2")[0].style.display = "flex";
             Name = document.getElementById("name").value;
             sessionStorage.setItem("name", Name);
+            readNo();
         }
         function addquestion() {
-            readNo();
+            // readNo();
             getdata();
             no++;
             set(ref(db, "Quiz/" + Name + "/" + no), {
@@ -287,7 +288,7 @@
         }
         function dellast()
         {
-            readNo();
+            // readNo();
             remove(ref(db,"Quiz/"+Name+"/"+(no--))).then(alert("Last Question deleted")).catch((error)=>{alert("unsuccessful",error)});
         }
     </script>
