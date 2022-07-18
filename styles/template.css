@@ -283,7 +283,7 @@ footer {
     flex-direction: column;
 }
 
-@media screen and (max-width:650px) {
+@media screen and (max-width:750px) {
     #nav ul {
         display: none;
     }
