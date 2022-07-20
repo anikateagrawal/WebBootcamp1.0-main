@@ -261,7 +261,7 @@
                 d.className = "ques";
                 d.innerHTML = `<p>Q${n}. ${q}</p>
                 <div class="obox">
-                <div class="b"><label>Ans${n}. <input type="radio" name="answer${n}" value="1">
+                <div class="b"><input type="radio" name="answer${n}" value="1">
                 <span>${o1}</span>
                 </div>
                 <div class="b"><input type="radio" name="answer${n}" value="2">
@@ -294,12 +294,15 @@
             document.getElementById("result").textContent = `Your score is ${score} out of ${n}`;
             var sec = document.getElementsByClassName("answers")[0];
             questions.forEach(question => {
+                // console.log(question);
                 let n = question.No, q = question.Question, o1 = question.Option1, o2 = question.Option2, o3 = question.Option3, o4 = question.Option4, a = question.Answer;
                 let d = document.createElement("div");
                 d.className = "ques";
                 d.innerHTML = `<p>Q${n}. ${q}</p>
                 <div class="obox">
-                <div class="b"><label for="answer${n}">Ans${n}. <input type="radio" name="ans${n}" value="1">
+                <div class="b">
+                <input type="radio" name="ans${n}" value="0" checked style="display:none">
+                <input type="radio" name="ans${n}" value="1">
                 <span>${o1}</span>
                 </div>
                 <div class="b"><input type="radio" name="ans${n}" value="2">
@@ -311,13 +314,13 @@
                 <span>${o4}</span></div> 
                 </div>`
                 sec.appendChild(d);
-                document.getElementsByName(`ans${n}`)[ans[n] - 1].checked = true;
-                document.getElementsByName(`ans${n}`)[0].disabled = true;
+                document.getElementsByName(`ans${n}`)[ans[n]].checked = true;
                 document.getElementsByName(`ans${n}`)[1].disabled = true;
                 document.getElementsByName(`ans${n}`)[2].disabled = true;
                 document.getElementsByName(`ans${n}`)[3].disabled = true;
+                document.getElementsByName(`ans${n}`)[4].disabled = true;
                 let b = document.querySelector(`input[name="answer${n}"]:checked`).value;
-                document.getElementsByName(`ans${n}`)[b-1].style ="background-color: blue;";
+                document.getElementsByName(`ans${n}`)[b].style.backgroundColor ="blue";
                 sessionStorage.clear();
             });
         }
