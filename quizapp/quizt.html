@@ -101,7 +101,7 @@
         .obox {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            /* align-items: center; */
             flex-wrap: wrap;
             margin-right: 20px;
         }
@@ -259,20 +259,25 @@
                 let n = question.No, q = question.Question, o1 = question.Option1, o2 = question.Option2, o3 = question.Option3, o4 = question.Option4, a = question.Answer;
                 let d = document.createElement("div");
                 d.className = "ques";
-                d.innerHTML = `<p>Q${n}. ${q}</p>
+                d.innerHTML = `<p id="Q${n}"></p>
                 <div class="obox">
                 <div class="b"><input type="radio" name="answer${n}" value="1">
-                <span>${o1}</span>
+                <span id="O${n}1"></span>
                 </div>
                 <div class="b"><input type="radio" name="answer${n}" value="2">
-                <span>${o2}</span>
+                <span id="O${n}2"></span>
                 </div>
                 <div class="b"><input type="radio" name="answer${n}" value="3">
-                <span>${o3}</span></div>
+                <span id="O${n}3"></span></div>
                 <div class="b"><input type="radio" name="answer${n}" value="4">
-                <span>${o4}</span></div> 
-                <input type="radio" name="answer${n}" value="0" checked style="display:none"></div>`
+                <span id="O${n}4"></span></div> 
+                <input type="radio" name="answer${n}" value="0" checked style="display:none"></div>`;
                 sec.appendChild(d);
+                document.getElementById(`Q${n}`).textContent=`Q${n}. ${q}`;
+                document.getElementById(`O${n}1`).textContent=`${o1}`;
+                document.getElementById(`O${n}2`).textContent=`${o2}`;
+                document.getElementById(`O${n}3`).textContent=`${o3}`;
+                document.getElementById(`O${n}4`).textContent=`${o4}`;
                 ans[0] = n;
                 ans[n] = a;
             });
@@ -298,22 +303,28 @@
                 let n = question.No, q = question.Question, o1 = question.Option1, o2 = question.Option2, o3 = question.Option3, o4 = question.Option4, a = question.Answer;
                 let d = document.createElement("div");
                 d.className = "ques";
-                d.innerHTML = `<p>Q${n}. ${q}</p>
+                d.innerHTML = `<p id="q${n}"></p>
                 <div class="obox">
                 <div class="b">
                 <input type="radio" name="ans${n}" value="0" checked style="display:none">
                 <input type="radio" name="ans${n}" value="1">
-                <span>${o1}</span>
+                <span id="o${n}1"></span>
                 </div>
                 <div class="b"><input type="radio" name="ans${n}" value="2">
-                <span>${o2}</span>
+                <span id="o${n}2"></span>
                 </div>
                 <div class="b"><input type="radio" name="ans${n}" value="3">
-                <span>${o3}</span></div>
+                <span id="o${n}3"></span></div>
                 <div class="b"><input type="radio" name="ans${n}" value="4">
-                <span>${o4}</span></div> 
-                </div>`
+                <span id="o${n}4"></span></div> 
+                </div>`;
                 sec.appendChild(d);
+                document.getElementById(`q${n}`).textContent=`Q${n}. ${q}`;
+                document.getElementById(`o${n}1`).textContent=`${o1}`;
+                document.getElementById(`o${n}2`).textContent=`${o2}`;
+                document.getElementById(`o${n}3`).textContent=`${o3}`;
+                document.getElementById(`o${n}4`).textContent=`${o4}`;
+
                 document.getElementsByName(`ans${n}`)[ans[n]].checked = true;
                 document.getElementsByName(`ans${n}`)[1].disabled = true;
                 document.getElementsByName(`ans${n}`)[2].disabled = true;
