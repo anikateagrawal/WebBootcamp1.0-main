@@ -261,15 +261,15 @@
             </a>
         </section>
         <section id="contact">
-            <div class="con">
+            <form class="con" id="form">
                 <h1 align="center" class=".contact">Contact Us</h1>
-                <input type="text" id="name" placeholder="Name"><br>
-                <input type="email" id="email" placeholder="Email"><br>
-                <textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea><br>
+                <input type="text" id="name" placeholder="Name" required><br>
+                <input type="email" id="email" placeholder="Email" required><br>
+                <textarea name="message" id="message" cols="30" rows="10" placeholder="Message" required></textarea><br>
                 <div class="butns">
-                    <button class="butn">SEND</button>
+                    <button class="butn" type="submit">SEND</button>
                 </div>
-            </div>
+            </form>
 
             <script type="module" src="../js/firebase.js"></script>
             <script type="module" src="../js/contactus.js"></script>

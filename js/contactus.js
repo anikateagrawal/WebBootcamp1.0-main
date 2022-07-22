@@ -4,8 +4,7 @@ import{getDatabase,ref,get,set,update,remove,child} from "https://www.gstatic.co
         var email=document.getElementById("email");
         var message=document.getElementById("message");
 
-        document.getElementsByClassName("butn")[0].onclick=input;
-
+        document.getElementById("form").addEventListener("submit",input);
         var n,e,m;
         function getData()
         {
@@ -13,23 +12,16 @@ import{getDatabase,ref,get,set,update,remove,child} from "https://www.gstatic.co
             e=email.value;
             m=message.value;
         }
-        function clear()
-        {
-            Name.value="";
-            email.value="";
-            message.value="";
-        }
 
-        function input(){
+        function input(event){
+            event.preventDefault();
             getData();
-            if(!(e==""||n==""||m=="")){
             set(ref(db,"Message/"+e.substring(0,e.indexOf('@'))),{
                 Name:n,
                 Email:e,
                 Message:m
             }).then(()=>{
-                alert("Message Sent Successfully")
-            }).catch((error)=>alert("unsuccessful",error));}
-            else alert("Fields cannot be empty");
-            clear();
+                alert("Message Sent Successfully");
+                this.reset();
+            }).catch((error)=>alert("unsuccessful",error));
         }
