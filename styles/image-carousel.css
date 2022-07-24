@@ -5,20 +5,52 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 50px 10px;
+
 }
 #skills{
     width: 100%;
-    text-align: left;
+    text-align: center;
     padding: 20px;
+    color: rgb(13, 36, 179);
+    font-weight: bolder;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color:rgb(155, 141, 232);
+
+    font-size: 30px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+   border-bottom-right-radius: 50px;
+
 }
 .home{
+    /* font-size: 40px;
+    color: rgb(13, 36, 179);
+    font-weight: bolder;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: dodgerblue;
+    width: 100%;
+     */
+   
+    /* text-shadow: 2px 2px 5px black; */
+
+   border-bottom-left-radius: 50px;
+   border-bottom-right-radius: 50px;
+   border-top-left-radius: 50px;
+   border-top-right-radius: 50px;
+   
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    color: rgb(13, 36, 179);
+    font-weight: bolder;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color:aqua;
     font-size: 50px;
-    color: red;
-    text-shadow: 2px 2px 5px black;
 }
 .box{
     width: 100%;
-    height: 80%;
+    height: 100%;
     position: relative;
 }
 #btn1{
@@ -54,11 +86,11 @@ padding: 50px 10px;
 .image{
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 130%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     visibility: hidden;
 }
 .i{
@@ -67,8 +99,10 @@ padding: 50px 10px;
     border: 10px solid black;
 }
 .image p{
-    font-size: x-large;
-    text-shadow: 1px 1px 3px;
+    font-size: xx-large;
+    /* text-shadow: 1px 1px 3px; */
+    
+    font-weight: bolder;
 }
 .main{
     visibility: visible;
