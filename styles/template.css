@@ -67,14 +67,11 @@ a {
 }
 
 .logo {
-    border: 10px solid blue;
+    border: 3px solid blue;
     padding: 10px;
     border-radius: 0px 20px;
     margin-left: 50px;
-    /* text-shadow: 1px 1px 3px rgb(129, 129, 186); */
-    background-color:aqua;
-    font-weight: bolder;
-    padding-left: 5px;
+    text-shadow: 1px 1px 3px blue;
 }
 
 #nav ul {
@@ -83,20 +80,14 @@ a {
     align-items: center;
     flex-wrap: wrap;
     margin-right: 20px;
-    background-color:rgb(155, 141, 232);
-    
 }
 
 #nav a {
-    color:rgb(13, 36, 179);
+    color: black;
     text-decoration: none;
     padding: 10px;
     border-radius: 5px;
-    
-    /* text-shadow: 1px 1px 2px; */
-    font-weight:900;
-    font-size: larger;
-    
+    text-shadow: 1px 1px 2px;
 }
 
 #nav li {
@@ -109,8 +100,8 @@ a {
 }
 
 #nav a:hover {
-    color: rgb(255, 255, 0);
-    /* text-decoration: underline; */
+    color: rgb(9, 73, 249);
+    text-decoration: underline;
 }
 #nav li:hover{
     transform: scale(1.2);
@@ -145,7 +136,6 @@ a {
 .heading {
     text-align: center;
     color: black;
-   
     padding-top: 70px;
     margin-bottom: 10px;
     text-shadow: 1px 1px 3px blue;
@@ -174,10 +164,8 @@ a {
     align-items: center;
     flex-direction: column;
     color: black;
-    text-shadow: 1px 1px 3px grey;
-    font-weight: bold;
+    text-shadow: 1px 1px 3px red;
     padding: 20px;
-    font-size:x-large;
 }
 
 #sec1 .team {
