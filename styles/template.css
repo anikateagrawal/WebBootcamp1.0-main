@@ -93,8 +93,9 @@ a {
     padding: 10px;
     border-radius: 5px;
     
-    text-shadow: 1px 1px 2px;
-    font-weight: bolder;
+    /* text-shadow: 1px 1px 2px; */
+    font-weight:900;
+    font-size: larger;
     
 }
 
