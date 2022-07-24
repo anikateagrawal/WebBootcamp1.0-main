@@ -107,9 +107,10 @@ a {
     transform: scale(1.2);
 }
 #nav {
-    margin-top: 10px;
-    position: sticky;
-    top: 0;
+    /* margin-top: 10px; */
+    position: fixed;
+    top: -10;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
