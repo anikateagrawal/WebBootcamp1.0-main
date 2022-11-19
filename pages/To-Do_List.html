@@ -176,9 +176,9 @@
         function del(e){
             var i=e.target;
             var p=i.parentElement;
-            var v=p.children[0];
-            p.parentElement.remove(v);
-            arr.pop(v);
+            var v=p.children[0].value;
+            p.parentElement.remove(p);
+            arr=arr.filter(i=>i!=v);
             localStorage.setItem("list",arr);
         }
     </script>
