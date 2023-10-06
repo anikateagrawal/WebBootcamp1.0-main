@@ -1,4 +1,4 @@
-import{getDatabase,get,child,ref} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-database.js";
+import{getDatabase,get,child,ref} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
 const db=getDatabase();
 function getusers()
 {
